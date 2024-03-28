@@ -2,7 +2,7 @@
 title: Magnet Virtual Summit CTF 2023 - iOS Writeup
 description: Writeup for the iOS portion of the MVS 2023 CTF.
 author: sosborn
-date: 2024-03-27 16:27:00 -0400
+date: 2024-03-27 12:27:00 -0400
 categories: [CTF]
 tags: [magnet, ios]
 
@@ -109,7 +109,7 @@ The iOS Screen Time database can be found at `/private/var/mobile/Library/Applic
 
 One of the images in Michael's photo library (`IMG_0068.HEIC`{: .filepath}) features a sign for the RHEINFAHRE in question.
 
-![IMG_0068](/assets/img/2024-03-27-MVS_CTF_2023_iOS_Writeup/10_1.png){: width="401" }
+![IMG_0068](/assets/img/2024-03-27-MVS_CTF_2023_iOS_Writeup/10_1.png){: width="400" }
 
 Running exiftool on the image gives the GPS coordinates (`exiftool IMG_0068.HEIC | grep GPS`). After putting them into Google Maps, we can use street view to see the way to RHEINFAHRE is South.
 
