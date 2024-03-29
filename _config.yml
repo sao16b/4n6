@@ -126,8 +126,8 @@ pwa:
 paginate: 10
 
 # The base URL of your site
-baseurl:
-#baseurl: "/4n6"
+#baseurl:
+baseurl: "/4n6"
 
 # ------------ The following options are not recommended to be modified ------------------
 
