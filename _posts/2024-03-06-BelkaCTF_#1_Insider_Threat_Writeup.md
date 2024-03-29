@@ -2,7 +2,7 @@
 title: "BelkaCTF #1: Insider Threat Writeup"
 description: Writeup for Belkasoft's Insider Threat CTF.
 author: sosborn
-date: 2024-03-06 18:13:00 -0400
+date: 2024-03-06 19:13:00 -0400
 categories: [CTF]
 tags: [belkasoft, windows]
 ---
