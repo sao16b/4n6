@@ -25,7 +25,7 @@ In Autopsy, I looked at Anit's inbox (Data Artifacts -> E-Mail Messages -> Defau
 
 ![Anit's Inbox](/assets/img/2024-03-06/2_1.png){: width="700" }
 
-Navigating to <http://praivacymatrix.com> and surfing their site shows their address is **Ifangstrasse 6, 8952 Schlieren, Zurich, Switzerland**.
+Navigating to <a href="" onclick="return false;">praivacymatrix.com</a> and surfing their site shows their address is **Ifangstrasse 6, 8952 Schlieren, Zurich, Switzerland**.
 
 ![praivacymatrix.com](/assets/img/2024-03-06/2_2.png){: width="500" }
 
