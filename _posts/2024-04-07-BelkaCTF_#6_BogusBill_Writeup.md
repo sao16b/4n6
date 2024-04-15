@@ -349,7 +349,7 @@ To do the same, one would need a QR code or setup key for CRBK. On the Windows i
 
 I download Google Authenticator on my phone and scan the QR Code. I then use the one-time password to download all the transactions from CRBK into a CSV file.
 
-![Google Authenticator](/assets/img/2024-04-07/18_4.png){: width="300" }
+![Google Authenticator](/assets/img/2024-04-07/18_4.PNG){: width="300" }
 
 ![CRBK 2FA](/assets/img/2024-04-07/18_5.png){: width="600" }
 
