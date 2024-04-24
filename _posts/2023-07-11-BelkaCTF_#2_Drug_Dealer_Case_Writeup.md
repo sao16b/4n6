@@ -13,7 +13,7 @@ tags: [belkasoft, android]
 
 **Problem**: A suspicious-looking man was detained, and traces of drugs were found on him. An image of his Android phone was taken, and we're tasked with finding out if this man is connected to the local drug ring. My first foray into phone forensics!
 
-### 1. Owner (Baby - 160 points)
+### 1. Owner
 
 **Prompt**: What is the full name of the phone owner?
 
@@ -29,7 +29,9 @@ There's an X-ray image of someone's knees in `/data/media/0/DCIM/Camera`{: .file
 
 ![X-ray](/assets/img/2023-07-11/1_3.png){: width="500" }
 
-### 2. Supervisor (Warmup - 135 points)
+**Answer**: Derek Hor
+
+### 2. Supervisor
 
 **Prompt**: What is the phone number he reported to about drug delivery?
 
@@ -37,7 +39,9 @@ In `/data/data/com.android.providers.contacts/databases`{: .filepath} there's a 
 
 ![Contacts2.db](/assets/img/2023-07-11/2_1.png){: width="600" }
 
-### 3. Destinations (Tricky - 829 points)
+**Answer**: 12395104974
+
+### 3. Destinations
 
 **Prompt**: What were the suspect's delivery locations on the night of arrest?
 
@@ -73,7 +77,9 @@ We can pull out the lat/longs from the URLs to get the answers:
 - **33.374304,-112.1035501**
 - **33.5542226,-111.9340928**
 
-### 4. Job experience (Baby - 348 points)
+**Answer**: 33.4845,-111.877215, 33.374304,-112.1035501, 33.5542226,-111.9340928
+
+### 4. Job experience
 
 **Prompt**: How long has the suspect been acting as a drug dealer?
 
@@ -83,7 +89,9 @@ Going back to the WhatsApp history, there's a few interchanges between Derek and
 
 April 18, 2021 - June 20, 2020 = **303 days**.
 
-### 5. Salary (Tricky - 1000 points)
+**Answer**: 303 days
+
+### 5. Salary
 
 **Prompt**: From what Bitcoin wallet did he get paid the last time for his job?
 
@@ -103,7 +111,9 @@ Examining the transaction and exporting the receipt gives the source wallet: **1
 
 ![Bitcoin Invoice](/assets/img/2023-07-11/5_4.png){: width="500" }
 
-### 6. Supplier (Hard - 444 points)
+**Answer**: 113JqY3CqsQPT7EN6wj5tRAVKftEP9rQC
+
+### 6. Supplier
 
 **Prompt**: What is the phone number of the drug supplier?
 
@@ -119,7 +129,9 @@ I export the Signal backup and download a tool called signal-back (<https://gith
 
 ![Signal Go Struct](/assets/img/2023-07-11/6_3.png)
 
-### 7. Refill (Tricky - 547 points)
+**Answer**: +14233767293
+
+### 7. Refill
 
 **Prompt**: When was the last time the suspect met his supplier?
 
@@ -135,7 +147,9 @@ Looks like there's a few more records for Pizza deliveries, the latest one takin
 
 ![Pizza Delivery Events](/assets/img/2023-07-11/7_3.png){: width="700" }
 
-### 8. IMEI (Warmup - 691 points)
+**Answer**: April 10, 2021 at 00:30:00
+
+### 8. IMEI
 
 **Prompt**: What is the supplier's phone IMEI identifier?
 
@@ -147,7 +161,9 @@ Only two IMEIs are present across all four events: 350236009513272 (Derek) and *
 
 ![Identified IMEIs](/assets/img/2023-07-11/8_2.png){: width="400" }
 
+**Answer**: 332182208414842
+
 ### Debrief
 
-This one was a bit easier than the previous CTF. I still have to figure out my way around Bitcoin, and I could use some more practice navigating phone file systems. I was especially proud of myself for finding the answer to [task 6](#6-supplier-hard---444-points); sometimes grueling directory searching pays off. Speaking of, I'm proud of myself for my consistent (so far) ability to recall files and information I searched through earlier. I think that's come in handy a few times these past CTFs. Anyway, one more to go! And then I'm thinking maybe a big one, like the Magnet Virtual Summit CTF from earlier this year.
+This one was a bit easier than the previous CTF. I still have to figure out my way around Bitcoin, and I could use some more practice navigating phone file systems. I was especially proud of myself for finding the answer to [task 6](#6-supplier); sometimes grueling directory searching pays off. Speaking of, I'm proud of myself for my consistent (so far) ability to recall files and information I searched through earlier. I think that's come in handy a few times these past CTFs. Anyway, one more to go! And then I'm thinking maybe a big one, like the Magnet Virtual Summit CTF from earlier this year.
 

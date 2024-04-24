@@ -24,6 +24,8 @@ It seems most of these first questions can be answered through the registry file
 
 ![Chrome Remote Desktop Registry](/assets/img/2024-03-30/1_1.png){: width="600" }
 
+**Answer**: Chrome Remote Desktop
+
 ### 2. Remember to turn back the clocks in November!
 
 **Prompt**: What is the system time zone?
@@ -31,6 +33,8 @@ It seems most of these first questions can be answered through the registry file
 System Time Zone information can be found in the `C:\Windows\System32\config\SYSTEM`{: .filepath} registry hive under key `ControlSet001\Control\TimeZoneInformation`{: .filepath}. The `TimeZoneKeyName`{: .filepath} subkey reveals the time zone as **Greenwich Standard Time**.
 
 ![Time Zone Registry](/assets/img/2024-03-30/2_1.png){: width="600" }
+
+**Answer**: Greenwich Standard Time
 
 ### 3. I think I’m going to have a (National) Expresso toDay!
 
@@ -42,8 +46,9 @@ This information can be found in the `C:\Windows\System32\config\SAM`{: .filepat
 
 The account creation time can be found by pulling the modification timestamp from the key `Domains\Account\Users\Names\sgarza`{: .filepath}: **2022-11-23 02:46:17**.
 
-
 ![sgarza Name Modified Timestamp](/assets/img/2024-03-30/3_2.png){: width="500" }
+
+**Answer**: 2022-11-23 02:46:17
 
 ### 4. WHAT? I CANT HEAR YOU OVER THE FANS!
 
@@ -52,6 +57,8 @@ The account creation time can be found by pulling the modification timestamp fro
 OS information can be found in the `C:\Windows\System32\config\SOFTWARE`{: .filepath} hive under key `Microsoft\Windows NT\CurrentVersion`{: .filepath}. From the `ProductName`{: .filepath} and `ReleaseID`{: .filepath} key values, the OS edition is **Windows Server 2019 Datacenter (1809)**.
 
 ![OS Information](/assets/img/2024-03-30/4_1.png){: width="600" }
+
+**Answer**: Windows Server 2019 Datacenter (1809)
 
 ### 5. Let’s go to Jackson and see the capital while we’re here.
 
@@ -67,6 +74,8 @@ I notice also that the various events seem to group under an identifier in the e
 
 Looking through the event logs, there are **two** destination IPs that fall under the "stun" connection type, 10.202.0.2 and 34.162.97.100. I'm not at all confident about the 10.202.0.2 address, and would have liked to have seen the other IP, 34.162.141.21. Maybe operate on the assumption that if the user connected to one, they connected to the other? 
 
+**Answer**: two
+
 ### 6. I lost Control of my Services and broke all the Tcpipconnections. This is the last time I’m going to use random Parameters I don’t understand!
 
 **Prompt**: What was the second domain in the search list provided by the DHCP server?
@@ -77,6 +86,8 @@ In the `C:\Windows\System32\config\SYSTEM`{: .filepath} hive, the key `CurrentCo
 
 Interestingly, the `DhcpIPAddress`{: .filepath} is 10.202.0.2, the IP address found in the chromoting events in the previous question.
 
+**Answer**: c.boxwood-scope-369502.internal
+
 ### 7. Which email did I use for this again?
 
 **Prompt**: Not including their work account or gmail, what other email address did the primary user of the system have?
@@ -84,6 +95,8 @@ Interestingly, the `DhcpIPAddress`{: .filepath} is 10.202.0.2, the IP address fo
 This one was easy. In Autopsy, under `Data Artifacts -> Web Form Autofill`{: .filepath} there are a few email addresses for the Default profile in Chrome: sgarza@kurvalis.com, sgarza1284@gmail.com, and **sgarza1284@proton.me**.
 
 ![Autofill](/assets/img/2024-03-30/7_1.png){: width="700"}
+
+**Answer**: sgarza1284@proton.me
 
 ### 8. Can I sync these on my mobile device?
 
@@ -94,6 +107,8 @@ The user's Chrome bookmarks are in `C:\Users\sgarza\AppData\Local\Google\Chrome\
 ![Bookmarks](/assets/img/2024-03-30/8_1.png){: width="400"}
 
 ![Dcode](/assets/img/2024-03-30/8_2.png){: width="700"}
+
+**Answer**: Mobile bookmarks
 
 ### 9. I’m tired of Googling about the Cloud. Time to learn about PowerShell modules instead.
 
@@ -106,6 +121,8 @@ In Autopsy, `Data Artifacts -> Installed Programs`{: .filepath} says Google Clou
 I navigate to the first path (`platform\GoogleCloudPowerShell\GoogleCloudPowerShell.psd1`{: .filepath}) and there I find the GUID: **e74637e6-7a4e-422d-bb9c-ca50809d78bb**.
 
 ![GoogleCloudPowerShell](/assets/img/2024-03-30/9_2.png){: width="500"}
+
+**Answer**: e74637e6-7a4e-422d-bb9c-ca50809d78bb
 
 ### Debrief
 

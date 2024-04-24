@@ -13,7 +13,7 @@ tags: [belkasoft, linux]
 
 **Problem**: A boy has gone missing. Let's find out what happened to him! A laptop loaded with Linux? Oh boy.
 
-### 1. Users (Baby - 100 points)
+### 1. Users
 
 **Prompt**: List all users of the laptop.
 
@@ -21,7 +21,9 @@ Easy peasy. On Linux, users are allocated a directory in `/home`{: .filepath}. I
 
 ![User Folders](/assets/img/2023-06-27_2/1_1.png){: width="700" }
 
-### 2. Special Web Site (Baby - 100 points)
+**Answer**: ivan, stanley
+
+### 2. Special Web Site
 
 **Prompt**: What web application was used by this boy to earn his pocket money?
 
@@ -31,7 +33,9 @@ I found the `places.sqlite`{: .filepath} database in `/home/ivan/.mozilla/firefo
 
 ![Drug Store](/assets/img/2023-06-27_2/2_1.png){: width="400" }
 
-### 3. Wallet (Baby - 100 points)
+**Answer**: x-tux-0.web.app
+
+### 3. Wallet
 
 **Prompt**: Which BTC wallet did the boy use to sell drugs?
 
@@ -39,7 +43,9 @@ Clicking on one of the 'View Product' buttons on the site gives us a bitcoin wal
 
 ![Bitcoin Address](/assets/img/2023-06-27_2/3_1.png){: width="600" }
 
-### 4. Passme (Moderate - 500 points)
+**Answer**: 1KFHE7w8BhaENAswwryaoccDb6qcT6DbYY
+
+### 4. Passme
 
 **Prompt**: On which date does the kid's database show the most sales for "Acapulco Gold"?
 
@@ -67,7 +73,9 @@ I ran the following command to get only sales for Acapulco Gold from both folder
 
 A quick look through the results showed Stanley/Ivan sold $16,044 in Acapulco Gold on **5/12/2021**.
 
-### 5. Cryptlet (Tricky - 750 points)
+**Answer**: 5/12/2021
+
+### 5. Cryptlet
 
 **Prompt**: What was the other BTC wallet of the victim, which he used to hide his "under the counter" sales from his superior?
 
@@ -105,13 +113,15 @@ Saving this new file and opening it gives us an invoice listing the private bitc
 
 ![Fixed PDF](/assets/img/2023-06-27_2/5_8.png){: width="500"}
 
-### 6. Notipass (Tricky - 750 points)
+**Answer**: bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh
+
+### 6. Notipass
 
 **Prompt**: What is the password to the boy's notes?
 
 In `/home/stanley/Documents/.mynote`{: .filepath} I found a CDFV2 Encrypted file called `notes`{: .filepath}. I export this to my local machine; now to find the password.
 
-The task points us in the direction of containers. I thought I saw a `vmware`{: .filepath} folder somewhere...yes! `/home/stanley/.cache/vmware`{: .filepath}. Dishearteningly, I find folders with PDFs that give the answer to [task 5](#5-cryptlet-tricky---750-points) with just a simple header substitution. But there's something else! A PDF called `NOTHING_IMPORTANT_INFO.pdf`{: .filepath} with something seemingly important embedded in it (thank you Autopsy!): a file called `passwd`{: .filepath}.
+The task points us in the direction of containers. I thought I saw a `vmware`{: .filepath} folder somewhere...yes! `/home/stanley/.cache/vmware`{: .filepath}. Dishearteningly, I find folders with PDFs that give the answer to [task 5](#5-cryptlet) with just a simple header substitution. But there's something else! A PDF called `NOTHING_IMPORTANT_INFO.pdf`{: .filepath} with something seemingly important embedded in it (thank you Autopsy!): a file called `passwd`{: .filepath}.
 
 ![Important PDF](/assets/img/2023-06-27_2/6_1.png)
 
@@ -127,7 +137,9 @@ But this! This is something I recognize. It looks like there may be a substituti
 
 ![dcode.fr Results](/assets/img/2023-06-27_2/6_4.png){: width="500"}
 
-### 7. Specudio (Hard - 1000 points)
+**Answer**: !mp0rt4nTNot3
+
+### 7. Specudio
 
 **Prompt**: What is the "secret pin" mentioned in the notes?
 
@@ -143,13 +155,17 @@ I open the file in Audacity, but I'm not too familiar with audio analysis so I'm
 
 ![Audacity Spectrogram](/assets/img/2023-06-27_2/7_2.png){: width="500"}
 
-### 8. Ultimatum (Baby - 100 points)
+**Answer**: 1257
+
+### 8. Ultimatum
 
 **Prompt**: When did the boy receive a threat?
 
 Looking back at the `notes`{: .filepath} document, there's a timestamp associated with the final paragraph where Ivan/Stanley describes being threatened 10 minutes earlier. Subtracting 10\*60=600 from 1637948867 gives **1637948267**.
 
-### 9. Whois (Warmup - 200 points)
+**Answer**: 1637948267
+
+### 9. Whois
 
 **Prompt**: Who was the kidnapper?
 
@@ -164,6 +180,8 @@ I recall one more password-protected zip file I had come across that I hadn't in
 Searching for Tux gives an email: **wixelig493@keagenan.com**.
 
 ![Tux Email](/assets/img/2023-06-27_2/8_2.png){: width="400"}
+
+**Answer**: wixelig493@keagenan.com
 
 ### Debrief
 

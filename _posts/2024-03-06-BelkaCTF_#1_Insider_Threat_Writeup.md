@@ -13,7 +13,7 @@ tags: [belkasoft, windows]
 
 **Problem**: A company's source code for an AI-based recommendation system has fallen into their competitor's hands, right before the launch. The prime suspect is a newly hired developer...and we have his hard drive.
 
-### 1. Name (Baby - 100 points)
+### 1. Name
 
 **Prompt**: What is the full name of the laptop owner?
 
@@ -21,7 +21,9 @@ It's a Windows image, so expanding the file system out to `C:\Users`{: .filepath
 
 ![User Folders](/assets/img/2024-03-06/1_1.png){: width="300" }
 
-### 2. Address (Baby - 208 points)
+**Answer**: Anit Ghosh
+
+### 2. Address
 
 **Prompt**: What is the full address of the company's office?
 
@@ -33,7 +35,9 @@ Navigating to praivacymatrix.com (note: as of 2024-03-29 this link is no longer 
 
 ![praivacymatrix.com](/assets/img/2024-03-06/2_2.png){: width="500" }
 
-### 3. First Shot (Warmup - 195 points)
+**Answer**: Ifangstrasse 6, 8952 Schlieren, Zurich, Switzerland
+
+### 3. First Shot
 
 **Prompt**: When did the suspect first show interest in the company's trade secrets?
 
@@ -41,7 +45,9 @@ Looking through Anit's `Sent`{: .filepath} folder, there's an email from Anit to
 
 ![Suspicious Email](/assets/img/2024-03-06/3_1.png){: width="300" }
 
-### 4. Witness (Warmup - 150 points)
+**Answer**: 2020-11-05 14:21:56 EST (19:21:56 UTC)
+
+### 4. Witness
 
 **Prompt**: What 3 employees should be asked questions about unauthorized requests from the suspect?
 
@@ -51,7 +57,9 @@ We already have an email to **John Finney** asking for documentation. In Anit's 
 
 ![Noelle Johnson Email](/assets/img/2024-03-06/4_2.png){: width="500" }
 
-### 5. Docs (Baby - 198 points)
+**Answer**: John Finney, Noelle Johnson, Rachel Corbin
+
+### 5. Docs
 
 **Prompt**: What is the SHA256 hash of the product documentation obtained by the suspect?
 
@@ -63,7 +71,9 @@ Autopsy also stores the hashes for each file, so I was able to grab the SHA256 h
 
 ![File Metadata](/assets/img/2024-03-06/5_2.png){: width="500"}
 
-### 6. Leaker (Tricky - 438 points)
+**Answer**: add33ea905399c5063bcc3437cb5c0436a2fd6deb086bb0ec5bf886f72767242
+
+### 6. Leaker
 
 **Prompt**: What employee has actually provided the suspect with the product documentation?
 
@@ -75,7 +85,9 @@ After doing some research, it looked as though Inkscape would be a good option f
 
 ![Zukko Revealed](/assets/img/2024-03-06/6_2.png){: width="500"}
 
-### 7. Source Code (Warmup - 160 points)
+**Answer**: Mark Zukko, 381
+
+### 7. Source Code
 
 **Prompt**: What URL did the suspect manage to obtain the product source code from?
 
@@ -83,7 +95,9 @@ In Anit's `Downloads`{: .filepath} folder, there's an interesting archive `xraic
 
 ![Alternate Data Stream](/assets/img/2024-03-06/7_1.png){: width="500"}
 
-### 8. E-Mail (Hard - 750 points)
+**Answer**: http://git.pm.internal/GBringley/xraicommend/archive/761263a55b8cfed4bcb8f87cbbb68beaf2ec2423.tar.gz
+
+### 8. E-Mail
 
 **Prompt**: What e-mail address did the suspect's backdoor code send reports to?
 
@@ -107,7 +121,9 @@ Passing the string through the echo command gives an intelligible script, which 
 
 ![Decoded Script](/assets/img/2024-03-06/8_5.png)
 
-### 9. Recipient (Hard - 945 points)
+**Answer**: alert872802737@protonmail.com
+
+### 9. Recipient
 
 **Prompt**: What are the 2 phone numbers used in the leaking of the data: one of the suspect and one of their counterparty?
 
@@ -121,7 +137,9 @@ In memory dumps, sometimes you can find phone numbers followed by @chat app doma
 
 Our first result indicates a Whatsapp account associated with the number **8562097771657**. We see that number a lot going down the list, but there's another one not too far down that's different: **8562099907377**@c.us.
 
-### 10. Package (Tricky - 750 points)
+**Answer**: 8562099907377
+
+### 10. Package
 
 **Prompt**: What is the SHA256 hash of the file exfiltrated?
 
@@ -131,7 +149,7 @@ Doing a keyword search in Autopsy for 8562097771657@s.whatsapp.net shows a messa
 
 Looking at the official writeup, we would have been able to access that link to download the file when the CTF was live, but the link is no longer functional. Wa wa.
 
-### 11. Wallet (Hard - 674 points)
+### 11. Wallet
 
 **Prompt**: What is the suspect's cryptocurrency address they intended to get reward paid to?
 

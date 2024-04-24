@@ -35,6 +35,8 @@ From the results of that query I can gather that Chadwick and Rocco met on **202
 
 ![SMS Messages](/assets/img/2024-04-01/1_1.png){: width="400" }
 
+**Answer**: 2023-12-17
+
 ### 2. Where /r u going on safari?
 
 **Prompt**: What subreddit was visited in a browser?
@@ -42,6 +44,8 @@ From the results of that query I can gather that Chadwick and Rocco met on **202
 In Autopsy, under `Data Artifacts -> Web History`{: .filepath}, according to the Safari history at `/private/var/mobile/Library/Safari/History.db`{: .filepath}, the user visited the **Twitch** subreddit.
 
 ![Reddit History](/assets/img/2024-04-01/2_1.png){: width="700" }
+
+**Answer**: Twitch
 
 ### 3. Don’t ghost me
 
@@ -67,6 +71,8 @@ Chadwick (sender id 22da...) seemingly gets annoyed at **2023-12-26 23:27:45**.
 
 ![MyAI Messages](/assets/img/2024-04-01/3_2.png)
 
+**Answer**: 2023-12-26 23:27:45
+
 ### 4. IMAGEine living in pain
 
 **Prompt**: Chad seemed to be searching for pain relief medicine in a store, how much did it cost?
@@ -74,6 +80,8 @@ Chadwick (sender id 22da...) seemingly gets annoyed at **2023-12-26 23:27:45**.
 In `/private/var/mobile/Media/DCIM/100APPLE`{: .filepath} there's an image `IMG_0017.HEIC`{: .filepath} of an ArnicareGel unit with the price displayed underneath: **$10.99**.
 
 ![Arnicare](/assets/img/2024-04-01/4_1.png){: width="400"}
+
+**Answer**: $10.99
 
 ### 5. Your keyboard is salt-y
 
@@ -83,6 +91,8 @@ It's so interesting that this is actually something that's logged on an iOS devi
 
 ![Total Words Typed](/assets/img/2024-04-01/5_1.png){: width="500"}
 
+**Answer**: 1814
+
 ### 6. Build me up, buttercup
 
 **Prompt**: What is the current build version?
@@ -91,6 +101,8 @@ In `/private/var/root/Library/MobileContainerManager/mcm_migration_status.plist`
 
 ![LastBuildInfo](/assets/img/2024-04-01/6_1.png){: width="700"}
 
+**Answer**: 20F75
+
 ### 7. Answer the call
 
 **Prompt**: What is the guild ID of the discord server Chad was in?
@@ -98,6 +110,8 @@ In `/private/var/root/Library/MobileContainerManager/mcm_migration_status.plist`
 In the Discord user data folder (`/private/var/mobile/Containers/Data/Application/FE27BB5E-D91E-4417-8669-C68FD6C67A97`{: .filepath}) I find a cache database at `Library/Caches/com.hammerandchisel.discord/Cache.db`{: .filepath}. In the `cfurl_cache_response`{: .filepath} table, there are some entries for Discord API calls to a guild with ID **136986169563938816**.
 
 ![Discord Cache](/assets/img/2024-04-01/7_1.png)
+
+**Answer**: 136986169563938816
 
 ### 8. Warning Signs
 
@@ -118,6 +132,8 @@ ORDER BY message.date ASC
 
 ![Boost Messages](/assets/img/2024-04-01/8_1.png){: width="500"}
 
+**Answer**: 18
+
 ### 9. Watching streams to stay current
 
 **Prompt**: What is the name of Chad’s streaming channel?
@@ -130,6 +146,8 @@ I looked up '"GardenGamer95" twitter' and one of the first results is actually a
 
 ![ChadwickGames](/assets/img/2024-04-01/9_2.png){: width="400"}
 
+**Answer**: ChadwickGames
+
 ### 10. One is The Loneliest Number
 
 **Prompt**: What question did Chadwick ask to AI?
@@ -140,6 +158,8 @@ He asks the AI many questions, including "What is doxing," "How to be a good gam
 
 ![ChatGPT](/assets/img/2024-04-01/10_1.png)
 
+**Answer**: How to make online friends
+
 ### 11. Watch me sUAVely win this game
 
 **Prompt**: How many kills did Chad have on his CoD Mobile winning game?
@@ -147,6 +167,8 @@ He asks the AI many questions, including "What is doxing," "How to be a good gam
 On Chadwick's YouTube channel, there's a video titled "Final Kills Lead to CoD Mobile Win!" Watching the video shows Chadwick had **7** kills at the end of the game.
 
 ![CoD Game](/assets/img/2024-04-01/11_1.png){: width="700"}
+
+**Answer**: 7
 
 ### 12. For when I can’t Find My gear
 
@@ -159,6 +181,8 @@ In `/private/var/mobile/Library/Caches/com.apple.findmy.fmipcore`{: .filepath} t
 Plugging this address in to Google Maps shows it's a store called **Neptune Mountaineering**.
 
 ![Find My Maps](/assets/img/2024-04-01/12_2.png){: width="600"}
+
+**Answer**: Neptune Mountaineering
 
 ### 13. Just a couple steps away
 
@@ -186,6 +210,8 @@ After executing the query, I find there are four records for 12/03. Adding up th
 
 ![healthdb_secure.sqlite Steps](/assets/img/2024-04-01/13_1.png){: width="400"}
 
+**Answer**: 968
+
 ### 14. Another regularly scheduled program
 
 **Prompt**: What Tattoo shop was visited on 12/27/2023?
@@ -208,6 +234,8 @@ It appears that for the location data we have, Chadwick didn't stray too far fro
 
 ![Auspicious Tattoo](/assets/img/2024-04-01/14_2.png){: width="500"}
 
+**Answer**: Auspicious Tattoo
+
 ### 15. I hear Stanley cups are all the rage
 
 **Prompt**: What was the final score of the hockey game Chad went to? (home – away)
@@ -220,6 +248,8 @@ Running exiftool on these shows that they were taken on 12/21/2023. Looking up "
 
 ![Score](/assets/img/2024-04-01/15_2.png){: width="500"}
 
+**Answer**: 6-4
+
 ### 16. Devil is in the details
 
 **Prompt**: Whose bitmoji is dressed like a devil?
@@ -229,6 +259,8 @@ I needed a little help with this one, but now I know that there's plenty more in
 I opened the file in plist Editor and did a search for bitmoji, coming across a couple of bitmoji URLs, including <https://images.bitmoji.com/render/panel/10226594-482842799_5-s5-v1.png?transparent=1>. The bitmoji at this URL is dressed like a devil. Surrounding plist values indicate the bitmoji belongs to **Sofiakhan**.
 
 ![Plist Bitmoji](/assets/img/2024-04-01/16_1.png){: width="600"}
+
+**Answer**: Sofiakhan
 
 ### 17. Excuse Moi?  What did you say?
 
@@ -255,6 +287,8 @@ I take note of the GUID of the second message and open `sms.db`{: .filepath} in 
 
 ![Deleted Message Content](/assets/img/2024-04-01/17_2.png){: width="500"}
 
+**Answer**: Excuse me?! That's quite a bold statement considering I'm the one who walked away with a black eye and spent $30 last night on products to avoid one!
+
 ### 18. Boost this server
 
 **Prompt**: What is the 16 character carrier code?
@@ -262,6 +296,8 @@ I take note of the GUID of the second message and open `sms.db`{: .filepath} in 
 I go to the iLEAPP Report generated by the iLEAPP Analyzer, and just for kicks click on the Cellular Wireless tab. There's an entry for `com.apple.carrier_1`{: .filepath} with a 16 character code: **310240_GID1-6432**, which iLEAPP pulled from `/private/var/wireless/Library/Preferences/com.apple.commcenter.plist`{: .filepath}.
 
 ![Carrier Code](/assets/img/2024-04-01/18_1.png){: width="500"}
+
+**Answer**: 310240_GID1-6432
 
 ### 19. The easy way or the hard way
 
@@ -284,6 +320,8 @@ Chad sent a message to Rocco on **2023-12-21 06:29:36** seeking to make amends, 
 
 ![Chad's Texts](/assets/img/2024-04-01/19_2.png){: width="400"}
 
+**Answer**: 2023-12-21 06:29:36
+
 ### 20. Its been a long time
 
 **Prompt**: When did Chad last login to Facebook? YYYY-MM-DD HH:MM:SS UTC
@@ -294,6 +332,8 @@ In the Facebook user data folder (`/private/var/mobile/Containers/Data/Applicati
 
 Plugging this into <https://www.epochconverter.com> gives the date **2023-12-27 21:34:55**.
 
+**Answer**: 2023-12-27 21:34:55
+
 ### 21. Can anyone Kelp?
 
 **Prompt**: What game was Chad asking to know the strategy to?
@@ -301,6 +341,8 @@ Plugging this into <https://www.epochconverter.com> gives the date **2023-12-27 
 I did a keyword search in Autopsy for "strategy" and came across a file in the Facebook user data caches that indicates Chadwick was looking for assistance with the game **Terrarium**.
 
 ![FB Terrarium Post](/assets/img/2024-04-01/21_1.png){: width="500"}
+
+**Answer**: Terrarium
 
 ### 22. Chat GPT is my PREFERENCE for AI
 
@@ -310,6 +352,8 @@ In the ChatGPT user data preferences folder (`/private/var/mobile/Containers/Dat
 
 ![ChatGPT Preferences](/assets/img/2024-04-01/22_1.png){: width="600"}
 
+**Answer**: user-xurgQ0xumvrujH5ESG17Yhcw
+
 ### 23. Read my mind
 
 **Prompt**: What message was sent to Rocco in a video game
@@ -317,6 +361,8 @@ In the ChatGPT user data preferences folder (`/private/var/mobile/Containers/Dat
 In the Call of Duty user data folder (`/private/var/mobile/Containers/Data/Application/3690AAA8-713A-482B-92F1-3F7D3BCC73E6`{: .filepath}), I comb through the `Documents`{: .filepath} and come across another folder named `ChatCache`{: .filepath} with a file `2023-12-20`{: .filepath} that indicates Chad sent the message **I know youre reading my messages**.
 
 ![CoD Message](/assets/img/2024-04-01/23_1.png){: width="500"}
+
+**Answer**: I know youre reading my messages
 
 ### 24. Season’s Greetings
 
@@ -333,6 +379,8 @@ Just as in [question 17](#17-excuse-moi--what-did-you-say), I take note of the f
 I look these up and the first result indicates they correspond to the **Christmas Tree** emoji. Although, according to other writeups, the answer is apparently **Potted Plant** when using Magnet? Doesn't make sense to me. 
 
 ![Bytes Search](/assets/img/2024-04-01/24_3.png){: width="500"}
+
+**Answer**: Potted Plant
 
 ### 25. Follow the Breadcrumbs
 
@@ -367,6 +415,7 @@ I pipe the script output into a grep for Amazon (`python3 /path/to/script.py | g
 
 From the output, it seems there were **2** instances of a text input stream (i.e. keyboard input) for the Amazon application on 12/24.
 
+**Answer**: 2
 
 ### Debrief
 This one was a doozy! 25 questions, and a lot of them were head scratchers. I was excited to flex some old SQL knowledge this go-around. Overall I felt this challenge was very well-rounded, though I'll still complain about the sheer image size, and that some of the challenge wasn't self-contained, even though I realize that in the real world, both are prevalent issues.

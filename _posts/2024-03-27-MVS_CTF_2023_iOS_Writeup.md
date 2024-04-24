@@ -24,6 +24,8 @@ Perhaps the easiest way of going about this would be by using Autopsy's Keyword 
 
 blueisth3best@icloud.com has the most hits, and corresponds to the phone's iCloud account. A little further down is mborchardt@kurvalis.com, which can be found in the Chrome `Preferences`{: .filepath} file and Slack folders. Further down still is borchardtmichael78@gmail.com, and also michaelkborchardt@proton.me, both present in Chrome data, giving a total of **four** significant email addresses.
 
+**Answer**: four
+
 ### 2. autoFill me in on the deets
 
 **Prompt**: Which email, other than their own, was autofilled in Chrome?
@@ -32,11 +34,15 @@ In the Chrome data folder (`/private/var/mobile/Containers/Data/Application/0B46
 
 ![Chrome Web Data autofill Table](/assets/img/2024-03-27/2_1.png){: width="700" }
 
+**Answer**: tlouis@kurvalis.com
+
 ### 3. 1 fish 2 fish, red fish bluefish
 
 **Prompt**: According to the user’s email accounts, what is his favorite color?
 
 His iCloud email is blueisth3best@icloud.com, so it stands to reason his favorite color is **blue**.
+
+**Answer**: blue
 
 ### 4. Chef Boyardee 2.0
 
@@ -53,6 +59,8 @@ Extracting the file and running exiftool on it gives GPS coordinates (`exiftool 
 Plugging these into Google Maps shows the photo was taken at the **Marché Atwater** in Quebec.
 
 ![Marché Atwater](/assets/img/2024-03-27/4_3.png){: width="600" }
+
+**Answer**: Marché Atwater
 
 ### 5. Staying stylish!
 
@@ -72,6 +80,8 @@ Scanning the Snapcode with the Snapchat app on my phone reveals Michael's avatar
 
 I could have just looked up Michael's username, m_b227468, which is present in the `Documents/user.plist`{: .filepath} file within the Snapchat data folder, but I thought this roundabout way was cool.
 
+**Answer**: green
+
 ### 6. Picking up Steam
 
 **Prompt**: What server was the user interested in making?
@@ -84,6 +94,8 @@ But, looking at some Discord snippets (`/private/var/mobile/Containers/Data/Appl
 
 ![Discord Log](/assets/img/2024-03-27/6_2.png){: width="700" }
 
+**Answer**: CSGO
+
 ### 7. Overlooking Excellence
 
 **Prompt**: What Sports stadium was the user overlooking at Camilien-Houde belvedere?
@@ -95,6 +107,8 @@ Going back to Michael's photo library, there's many photos of a city vista, with
 Running exiftool on the image, extracting the GPS coordinates (`exiftool IMG_0023.HEIC | grep GPS`), and putting them into Google Maps verifies Michael was overlooking the Camilien-Houde belvedere.
 
 ![Michael's Location](/assets/img/2024-03-27/7_2.png){: width="600" }
+
+**Answer**: Olympic Stadium
 
 ### 8. Out of this world
 
@@ -115,6 +129,8 @@ Combing through the list, there's a URL <https://www.tiktok.com/forest/nebula/ad
 
 ![Nebula ToC](/assets/img/2024-03-27/8_2.png){: width="600" }
 
+**Answer**: nebula
+
 ### 9. You're going to crush this one!
 
 **Prompt**: What light-hearted game did the user spend the most time on?
@@ -122,6 +138,8 @@ Combing through the list, there's a URL <https://www.tiktok.com/forest/nebula/ad
 The iOS Screen Time database can be found at `/private/var/mobile/Library/Application Support/com.apple.remotemanagementd/RMAdminStore-Local.sqlite`{: .filepath}, and the `ZUSAGETIMEDITEM`{: .filepath} table gives an idea of usage per application. I exported the table to CSV and sorted by the `ZTOTALTIMEINSECONDS`{: .filepath} column. A few rows down is com.midasplayer.apps.candycrushsaga (**Candy Crush Saga**) clocking in at 577 seconds.
 
 ![Screen Time Data](/assets/img/2024-03-27/9_1.png){: width="600" }
+
+**Answer**: Candy Crush Saga
 
 ### 10. Which way?
 
@@ -131,9 +149,11 @@ One of the images in Michael's photo library (`IMG_0068.HEIC`{: .filepath}) feat
 
 ![IMG_0068](/assets/img/2024-03-27/10_1.png){: width="400" }
 
-Running exiftool on the image gives the GPS coordinates (`exiftool IMG_0068.HEIC | grep GPS`). After putting them into Google Maps, we can use street view to see the way to RHEINFAHRE is South.
+Running exiftool on the image gives the GPS coordinates (`exiftool IMG_0068.HEIC | grep GPS`). After putting them into Google Maps, we can use street view to see the way to RHEINFAHRE is **South**.
 
 ![Street View](/assets/img/2024-03-27/10_2.png){: width="400" }
+
+**Answer**: South
 
 ### 11. First class seats out of here!
 
@@ -153,6 +173,8 @@ Using a new (to me) site <https://www.flightera.net>, I'm able to see there were
 
 All these flights took off from Terminal 1. Whew, that was a lot of work! The Frankfurt Airport Wikipedia says Terminal 1 is mainly used by **Lufthansa**, and a quick Google search verifies its 4-star status.
 
+**Answer**: Lufthansa
+
 ### 12. Boosting into a new era
 
 **Prompt**: The user was trying to learn German through an application, what promotion featuring a rocket was most commonly shown to the user?
@@ -160,6 +182,8 @@ All these flights took off from Terminal 1. Whew, that was a lot of work! The Fr
 Duolingo application data can be found in `/private/var/mobile/Containers/Data/Application/89A6AE48-C46D-4405-A187-C7FF439873F3`{: .filepath}. Here, I stumbled on a folder `Documents/plus-ad-video`{: .filepath} that contains a few promotional videos. The **Duolingo_NYPromo_2023_EN.mp4** video prominently features a rocket in its first frame.
 
 ![Duolingo Promos](/assets/img/2024-03-27/12_1.png){: width="500" }
+
+**Answer**: Duolingo_NYPromo_2023_EN.mp4
 
 ### 13. Q-uestion
 
@@ -180,6 +204,8 @@ The first URL, **http://user.qzone.qq.com**, seems to be what we're looking for.
 
 ![QQZone](/assets/img/2024-03-27/13_2.png){: width="300"}
 
+**Answer**: http://user.qzone.qq.com
+
 ### 14. You are here
 
 **Prompt**: Which airline lounge was viewed?
@@ -187,6 +213,8 @@ The first URL, **http://user.qzone.qq.com**, seems to be what we're looking for.
 I did a keyword search for 'lounge' in Autopsy and came across a file `PPSQLDatabase.db`{: .filepath}, which seems to contain some interesting user personalization data. One such piece of data in the `loc_records`{: .filepath} table names the **Lufthansa Senator Lounge**. The `sources`{: .filepath} table indicates this came from Apple Maps activity.
 
 ![PPSQLDatabase.db](/assets/img/2024-03-27/14_1.png)
+
+**Answer**: Lufthansa Senator Lounge
 
 ### 15. A river runs through it
 
@@ -203,6 +231,8 @@ So we're looking for location information timestamped between 694186518 and 6941
 All these coordinates point to **Eltville, Germany**.
 
 ![Eltville](/assets/img/2024-03-27/15_3.png){: width="500"}
+
+**Answer**: Eltville, Germany
 
 ### 16. Lo siento, its going to be a cold one
 
@@ -223,6 +253,8 @@ A little bit down the results I come across a notification in Spanish, with the 
 Googling for the title fragments and the channel (Univision Noticias) gives the video, warning of a **frente ártico**, or **arctic front**.
 
 ![YouTube Video](/assets/img/2024-03-27/16_4.png){: width="400"}
+
+**Answer**: arctic front
 
 ## Debrief
 

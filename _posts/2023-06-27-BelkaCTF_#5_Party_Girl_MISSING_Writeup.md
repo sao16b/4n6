@@ -11,7 +11,7 @@ tags: [belkasoft, windows]
 
 **Problem**: A 17-year old girl has gone missing after a party. We're tasked with finding out what happened, armed only with open-source tools and an E01 image of her laptop.
 
-### 1. User (Baby - 150 points)
+### 1. User
 
 **Prompt**: Who is the laptop user?
 
@@ -23,7 +23,9 @@ Alternatively (and perhaps more easily), one can load the image into Autopsy and
 
 ![OS Accounts](/assets/img/2023-06-27_1/1_2.png)
 
-### 2. Missing stuff (Warmup - 200 points)
+**Answer**: S-1-5-21-1751165416-2537581589-3438259779-1001
+
+### 2. Missing stuff
 
 **Prompt**: What phone model did the girl use?
 
@@ -31,7 +33,9 @@ Maybe we can use EXIF data from photos she took. A quick glance around the image
 
 ![Exiftool Results](/assets/img/2023-06-27_1/2_1.png){: width="500" }
 
-### 3. Going further (Warmup - 200 points)
+**Answer**: iPhone 8
+
+### 3. Going further
 
 **Prompt**: What is the version number of the girl's email software?
 
@@ -43,7 +47,9 @@ I get lucky with a search for Thunderbird in the same file and find version **91
 
 ![RegRipper Thunderbird](/assets/img/2023-06-27_1/3_2.png){: width="300" }
 
-### 4. Boyfriend? (Baby - 150 points)
+**Answer**: 91.10.0
+
+### 4. Boyfriend?
 
 **Prompt**: Who has recently invited the girl to meet up?
 
@@ -51,7 +57,9 @@ In Autopsy, I navigated to `Data Artifacts -> E-Mail Messages -> Default -> Defa
 
 ![Unique Place Email](/assets/img/2023-06-27_1/4_1.png)
 
-### 5. Final! (Hard - 700 points)
+**Answer**: jamegkmail@protonmail.com
+
+### 5. Final!
 
 **Prompt**: What is the chat password?
 
@@ -83,7 +91,9 @@ On a hunch I thought the decoded text might contain a space, which Base64 does n
 
 ![Script Results](/assets/img/2023-06-27_1/5_4.png){: width="600" }
 
-### 6. Not final (Hard - 700 points)
+**Answer**: julie@2000
+
+### 6. Not final
 
 **Prompt**: What software was mentioned in the invitation?
 
@@ -95,7 +105,9 @@ I listened to the `invitation.wav`{: .filepath} file. Morse code! I exported the
 
 ![Decoded Morse Code](/assets/img/2023-06-27_1/6_2.png){: width="400"}
 
-### 7. BelkaRestaurant (Tricky - 500 points)
+**Answer**: SilentEye
+
+### 7. BelkaRestaurant
 
 **Prompt**: Where was Maria invited to?
 
@@ -107,15 +119,17 @@ I looked through the EXIF data and tried a reverse Google image search but nothi
 
 Back to Autopsy to look through Maria's search history (`Data Artifacts -> Web History`{: .filepath}). I notice she visited <https://futureboy.us>, which is a site hosting a steganography tool! I uploaded the image and passed in 'specialevent' as the password, and we have our location: **Special Belkunir Pashe Restaurant**.
 
+**Answer**: Special Belkunir Pashe Restaurant
+
 ![Futureboy](/assets/img/2023-06-27_1/7_2.png){: width="300"}
 
-### 8. Open to call (Baby - 150 points)
+### 8. Open to call
 
 **Prompt**: What is the restaurant phone number?
 
 No results for Special Belkunir Pashe Restaurant anywhere I could find. I went back to the official writeup to learn I needed to use Open Street Map. But putting it into Open Street Map returned no results for me. Needed to be there, I guess.
 
-### 9. Backup (Warmup - 200 points)
+### 9. Backup
 
 **Prompt**: What kind of second factors can I use to download the girl's iCloud backup?
 
@@ -128,7 +142,9 @@ For this one we have four options:
 
 The site gives a link describing iCloud acquisition and analysis. It says there's only two types of second factors: SMS codes to a phone number linked to an iCloud account, and a code sent to a trusted device. That leaves options 1, 2, and 3, but we don't have Maria's phone, so the answers are **1** and **3**.
 
-### 10. Mystery unveiled (Baby - 150 points)
+**Answer**: 1, 3
+
+### 10. Mystery unveiled
 
 **Prompt**: Can you figure out where the girl is?
 
@@ -143,6 +159,8 @@ For this step the site linked a database file called `consolidated.db`{: .filepa
 Sticking those coordinates into Google Maps gives us Maria's last known location: Saint Margaret Hospital in **Budapest, Hungary**.
 
 ![Maria's Last Location](/assets/img/2023-06-27_1/10_3.png){: width="500"}
+
+**Answer**: Budapest, Hungary
 
 ### Debrief
 

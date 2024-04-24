@@ -26,6 +26,8 @@ A quick keyword search in Autopsy gives a hit in `/data/data/com.twitter.android
 
 ![Twitter CoD Username](/assets/img/2024-04-18/1_2.png){: width="500" }
 
+**Answer**: Twitter
+
 ### 2. Warm Up
 
 **Prompt**: What Southern state’s sports team did Rocco search up?
@@ -33,6 +35,8 @@ A quick keyword search in Autopsy gives a hit in `/data/data/com.twitter.android
 In Autopsy, under `Data Artifacts -> Web History`{: .filepath}, Chrome history reveals Rocco searched up the **Louisiana Ragin' Cajuns**.
 
 ![Chrome History](/assets/img/2024-04-18/2_1.png){: width="600" }
+
+**Answer**: Louisiana Ragin' Cajuns
 
 ### 3. Can you Handle this
 
@@ -42,6 +46,8 @@ Back in the Twitter databases (`/data/data/com.twitter.android/databases`{: .fil
 
 ![Twitter Username](/assets/img/2024-04-18/3_1.png){: width="400" }
 
+**Answer**: RoccoSachs96775
+
 ### 4. Need to reach those heights
 
 **Prompt**: What is the SIM operator name?
@@ -49,6 +55,8 @@ Back in the Twitter databases (`/data/data/com.twitter.android/databases`{: .fil
 SIM information can be found in the `telephony.db`{: .filepath} database, which I found in the device encrypted storage at `/data/user_de/0/com.android.providers.telephony/databases`{: .filepath}. The `siminfo`{: .filepath} table contains three entries with two carriers: T-Mobile and **Boost Mobile**. Considering that Boost Mobile has the `data_roaming`{: .filepath} column set to 1, and the `iso_country`{: .filepath} column set to 'us', that's probably the primary SIM operator.
 
 ![telephony.db](/assets/img/2024-04-18/4_1.png){: width="600" }
+
+**Answer**: Boost Mobile
 
 ### 5. Not to be basic but...
 
@@ -62,6 +70,8 @@ New artifact alert! It seems you can find out default applications from the `rol
 
 ![roles.xml](/assets/img/2024-04-18/5_2.png){: width="400"}
 
+**Answer**: Chrome
+
 ### 6. Survival Mode Activated
 
 **Prompt**: What conference did Rocco show interest in?
@@ -70,6 +80,8 @@ In Autopsy, under `Data Artifacts -> Web History`{: .filepath}, Chrome history i
 
 ![Preppercon](/assets/img/2024-04-18/6_1.png){: width="600"}
 
+**Answer**: Preppercon
+
 ### 7. Sign me up!
 
 **Prompt**: What email is associated with the device?
@@ -77,6 +89,8 @@ In Autopsy, under `Data Artifacts -> Web History`{: .filepath}, Chrome history i
 Android account information can be found in `/system_ce/0/accounts_ce.db`{: .filepath} or `/system_de/0/accounts_de.db`{: .filepath}. In both of these databases, there's a table `accounts`{: .filepath}, and both contain the email address **roccotsachs@gmail.com**.
 
 ![Email Address](/assets/img/2024-04-18/7_1.png){: width="400"}
+
+**Answer**: roccotsachs@gmail.com
 
 ### 8. Not so popular
 
@@ -88,6 +102,8 @@ In the `conversation_entries`{: .filepath} table, it's just a matter of summing 
 
 ![Twitter DMs](/assets/img/2024-04-18/8_1.png){: width="600"}
 
+**Answer**: 8
+
 ### 9. No two cents about them
 
 **Prompt**: According to exCHANGEs in discord with Chad, what did Chad want back from Rocco?
@@ -95,6 +111,8 @@ In the `conversation_entries`{: .filepath} table, it's just a matter of summing 
 Combing through the Discord folders, I stumble on a database at `/data/data/com.discord/files/kv-storage/@account.1185636389107273799/a`{: .filepath} that contains Discord messages in the table `messages0`{: .filepath}. In this table, there are records between Chad and Rocco that indicate Chad wanted **money** back from Rocco after he scammed him.
 
 ![Discord Message](/assets/img/2024-04-18/9_1.png){: width="600"}
+
+**Answer**: money
 
 ### 10. You can never be too ready
 
@@ -112,7 +130,9 @@ Rocco also took a photo of the book with a $9 sticker on it; it's located in `/d
 
 ![Book Picture](/assets/img/2024-04-18/10_3.png){: width="400"}
 
-### 11. Tag your’re it!
+**Answer**: 72
+
+### 11. Tag you’re it!
 
 **Prompt**: What city was the user in when they identified an AirTag on them?
 
@@ -128,6 +148,8 @@ Plugging these coordinates in to Google Maps reveals Rocco was in **Windsor, ON*
 
 ![Windsor, ON](/assets/img/2024-04-18/11_3.png){: width="500"}
 
+**Answer**: Windsor, ON
+
 ### 12. A game of Cat and Mouse
 
 **Prompt**: What game did two beloved cartoon charachters promote in an Ad?
@@ -137,6 +159,8 @@ This one is a ridiculous challenge, and I ended up consulting [Kevin Pagaro's wr
 ![Tom and Jerry](/assets/img/2024-04-18/12_1.png){: width="500"}
 
 I think this would take a while to find, but a way to find it would be to look through Autopsy's files through `File Views -> File Types -> By MIME Type -> video`{: .filepath}.
+
+**Answer**: Tom and Jerry: Chase
 
 ### 13. Always achieving new heights
 
@@ -150,6 +174,8 @@ The high score achieved in the video is **5187**.
 
 ![High Score](/assets/img/2024-04-18/13_2.png){: width="500"}
 
+**Answer**: 5187
+
 ### 14. LIVE your life
 
 **Prompt**: What two sports did Rocco capture in a photo?
@@ -157,6 +183,8 @@ The high score achieved in the video is **5187**.
 In the photos directory (`/data/media/0/DCIM/Camera`{: .filepath}) there's a live photo `PXL_20231218_020011968.jpg`{: .filepath} where I can just barely make out **golfing** and **skiing**.
 
 ![Trivia](/assets/img/2024-04-18/14_1.png){: width="500"}
+
+**Answer**: golfing and skiing
 
 ### 15. Remember your floaties
 
@@ -166,6 +194,8 @@ In Autopsy, under `Data Artifacts -> Web History`{: .filepath}, there's an entry
 
 ![Big Water Campgrounds](/assets/img/2024-04-18/15_1.png){: width="600"}
 
+**Answer**: Big Water Campgrounds, Timmins, Ontario
+
 ### 16. R-E-J-E-C-T-E-D Rejected
 
 **Prompt**: When was the last shutdown that was initiated by Rocco? (YYYY-MM-DD HH:MM:SS) UTC 24 hour time.
@@ -173,6 +203,8 @@ In Autopsy, under `Data Artifacts -> Web History`{: .filepath}, there's an entry
 There's an interesting folder `/data/system/shutdown-checkpoints`{: .filepath} that contains files with information about shutdowns, including those requested by the user. One file, `checkpoints-1703807249418`{: .filepath} contains the latest timestamp for a user-requested shutdown at **2023-12-28 23:47:29 UTC**.
 
 ![Shutdown Request](/assets/img/2024-04-18/16_1.png){: width="500"}
+
+**Answer**: 2023-12-28 23:47:29 UTC
 
 ### 17. Out of Stock
 
@@ -188,6 +220,8 @@ One directory up, there's a folder named `snapshots`{: .filepath}. In here, ther
 
 ![256.jpg](/assets/img/2024-04-18/17_2.png){: width="500"}
 
+**Answer**: 1899
+
 ### 18. So Salty!
 
 **Prompt**: What is the handle of the person who is talking about how upset they are with  Rocco?
@@ -201,6 +235,8 @@ I recall seeing in the Discord messages with Chad an exchange about a Twitter ac
 I find a few screenshots of the tweets in `/data/media/0/Pictures/Screenshots`{: .filepath} that gives the handle: **@larissajenna9**.
 
 ![Screenshot](/assets/img/2024-04-18/18_3.png){: width="300"}
+
+**Answer**: @larissajenna9
 
 ### 19. Don’t let them see you down
 
@@ -216,6 +252,8 @@ It doesn't seem like Connections would say "Next Time!" when he assumedly won th
 
 ![Original screenshot](/assets/img/2024-04-18/19_3.png){: width="300"}
 
+**Answer**: Success
+
 ### 20. It’s the eye of the tiger
 
 **Prompt**: When is Rocco’s Bday? (YYYY-MM-DD)
@@ -224,6 +262,8 @@ I know Facebook keeps track of birthdays, and luckily, we have a Facebook archiv
 
 ![Facebook Birthday](/assets/img/2024-04-18/20_1.png){: width="600"}
 
+**Answer**: 1974-09-29
+
 ### 21. Secrets Secrets are no Fun
 
 **Prompt**: What did Rocco search in the App Store to download the app used to hide photos?
@@ -231,6 +271,8 @@ I know Facebook keeps track of birthdays, and luckily, we have a Facebook archiv
 Google Play data can be found in `/data/data/com.android.vending`{: .filepath}. Under `databases`{: .filepath}, I find a database `suggestions.db`{: .filepath} that contains "queries". One of these is **calculator vault**, which is an app that is used to hide photos.
 
 ![Calculator Vault](/assets/img/2024-04-18/21_1.png){: width="400"}
+
+**Answer**: calculator vault
 
 ### 22. Stalker Alert
 
@@ -248,6 +290,7 @@ Plugging these coordinates in to Google Maps shows the photo was taken at **Devo
 
 ![Google Maps](/assets/img/2024-04-18/22_3.png){: width="500"}
 
+**Answer**: Devonshire Mall, 3100 Howard Ave Unit B7, Windsor, ON N8X 3Y8, Canada
 
 ### Debrief
 

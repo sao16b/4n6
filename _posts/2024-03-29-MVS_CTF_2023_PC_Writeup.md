@@ -22,6 +22,8 @@ After running Autopsy's ingest modules on the E01, I noticed in `Data Artifacts 
 
 ![Protonmail Autofill](/assets/img/2024-03-29/1_1.png){: width="400" }
 
+**Answer**: Protonmail
+
 ### 2. Two different versions, twice the emulation power! Makes sense to me!
 
 **Prompt**: The user installed and ran a mobile device emulation program on their system. Which 2 versions of this software did the user install? (Format: SoftwareName V1/V2)
@@ -32,6 +34,8 @@ Navigating in Autopsy to `Data Artifacts -> Installed Programs`{: .filepath} giv
 
 But in `C:\Program Files (x86)`{: .filepath} there's a folder `BlueStacks X`{: .filepath}. So the answer is **BlueStacks 5/X**. 
 
+**Answer**: BlueStacks 5/X
+
 ### 3. LITEning fast write speeds!
 
 **Prompt**: The user’s system is equipped with a 256GB NVMe SSD. What is the make and model of this drive?
@@ -39,6 +43,8 @@ But in `C:\Program Files (x86)`{: .filepath} there's a folder `BlueStacks X`{: .
 I start inspecting the `SYSTEM`{: .filepath} hive (`C:\Windows\System32\config\`{: .filepath}) in Autopsy and look at the usual suspects for device information. I come to the `ControlSet001\Enum\SCSI`{: .filepath} key and see a subkey `Disk&Ven_NVMe&Prod_LITEON_CA1-8D256`{: .filepath}. Hmm...NVMe, LITEON, this could be the drive we're looking for. Clicking on the subkey displays Autopsy's aggregated information on the drive, including the `FriendlyName`{: .filepath}: **LITEON CA1-8D256-HP**.
 
 ![Enum/SCSI key](/assets/img/2024-03-29/3_1.png){: width="500" }
+
+**Answer**: LITEON CA1-8D256-HP
 
 ### 4. Really...? Plaintext...?
 
@@ -48,6 +54,8 @@ There's a file on the user's Desktop called `Employee Logins.txt`{: .filepath} w
 
 ![VM Password](/assets/img/2024-03-29/4_1.png){: width="300"}
 
+**Answer**: ,a]JEU0yG^+]2O]
+
 ### 5. Why was 6 afraid of 7? Because 7 can unarchive virtual drives!
 
 **Prompt**: Within the past 2 years, a popular unarchiving program gained the ability to unarchive VHDX virtual disk images. What version of the program was this upgrade implemented?
@@ -55,6 +63,8 @@ There's a file on the user's Desktop called `Employee Logins.txt`{: .filepath} w
 In `C:\Program Files\`{: .filepath} there's a folder `7-Zip`{: .filepath} corresponding to the 7-Zip archiving application. In this folder there's a file `History.txt`{: .filepath} that contains version history for 7-Zip. Extracting and running a grep (`grep -B 3 VHDX History.txt`) reveals this feature was implemented in version **21.07**.
 
 ![7z History](/assets/img/2024-03-29/5_1.png){: width="500"}
+
+**Answer**: 21.07
 
 ### 6. We’re not in Kansas anymore...
 
@@ -67,6 +77,8 @@ I extract `C:\Windows\System32\winevt\Logs\Microsoft-Windows-TerminalServices-RD
 Looking up the IP on <https://www.maxmind.com/en/geoip-demo> shows the IP originates in **Columbus, OH**.
 
 ![Maxmind](/assets/img/2024-03-29/6_2.png){: width="600"}
+
+**Answer**: Columbus, OH
 
 ### 7. Make sure to keep some tabs on that SysAdmin from Southern California
 
@@ -82,6 +94,8 @@ Following the URL to the profile, there's a link to the user's LinkedIn, and the
 
 ![LinkedIn](/assets/img/2024-03-29/7_3.png){: width="500"}
 
+**Answer**: Armin Briegel
+
 ### 8. We have a History of attracting some sizeable donors with our projects
 
 **Prompt**: Michael used PowerShell to clone a particular GitHub utility. What is the account name of one of this repo’s most prominent sponsors?
@@ -94,6 +108,8 @@ Navigating to the repo, there's one entry for Sponsors: **yujincheng08**.
 
 ![Github Repo](/assets/img/2024-03-29/8_2.png){: width="500"}
 
+**Answer**: yujincheng08
+
 ### 9. Scratch that Itch.io
 
 **Prompt**: The user viewed a YouTube video by the creator BenBonk surrounding video game developers. Within this video, how many developers were involved with the project?
@@ -104,6 +120,8 @@ Looking back at Autopsy's `Data Artifacts -> Web History`{: .filepath}, there ar
 
 Of those videos, only the third one was created by BenBonk. Per the title, **20** developers were involved.
 
+**Answer**: 20
+
 ### 10. The breakfast bell is ringing
 
 **Prompt**: The user has been doing some research lately on fast food items. What is, according to some experts, the unhealthiest food item of the bunch?
@@ -113,6 +131,8 @@ Still in Autopsy's `Data Artifacts -> Web History`{: .filepath}, there's a YouTu
 ![Taco Bell Video](/assets/img/2024-03-29/10_1.png)
 
 The unhealthiest item they ranked in the video was the **Breakfast Crunchwrap Sausage Supreme**.
+
+**Answer**: Breakfast Crunchwrap Sausage Supreme
 
 ### 11. Gotta Git going fast with some Accelrated emulation!
 
@@ -126,6 +146,8 @@ I followed the first link from my preliminary Google search to the Github reposi
 
 ![WSA PacMan README](/assets/img/2024-03-29/11_2.png){: width="400"}
 
+**Answer**: 58526
+
 ### 12. Oh Deer...I think we’re lost
 
 **Prompt**: Michael lives just a mile south of a beautiful body of water. What is the name of this body of water
@@ -137,6 +159,8 @@ One of the first autofill entries in `Data Artifacts -> Web Form Autofill`{: .fi
 I plug this address into Google Maps and see it's just below a river called **Deer Creek**.
 
 ![Google Maps Address](/assets/img/2024-03-29/12_2.png)
+
+**Answer**: Deer Creek
 
 ### 13. PCA – Program Clang Assistant?
 
@@ -150,6 +174,7 @@ There are many executions listed in `PcaGeneralDb0.txt`{: .filepath}, but signif
 
 The program continually exits with code **0xc0000135**.
 
+**Answer**: 0xc0000135
 ### Debrief
 
 This CTF was interesting, to say the least. I pretty much breezed through the first 12 questions, and my confidence soared to new heights. And then 13 hit me like a truck. I think this was the best outcome, though: I feel assured in that I'm most comfortable with Windows, but I also am glad to have learned something new along the way.

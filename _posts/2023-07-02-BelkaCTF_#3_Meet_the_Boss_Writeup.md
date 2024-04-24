@@ -11,13 +11,15 @@ tags: [belkasoft, linux]
 
 **Problem**: We have the computer of a drug lord to comb through. We need to find evidence to lock him up for good this time.
 
-### 1. Username (Baby - 166 points)
+### 1. Username
 
 **Prompt**: What is the username on the imaged laptop?
 
 Linux again? Debian this time. It's still the same process as the last writeup. I load the image into Autopsy and navigate to the `/home`{: .filepath} directory. Just one user this time: **vt**.
 
-### 2. Forums (Warmup - 213 points)
+**Answer**: vt
+
+### 2. Forums
 
 **Prompt**: Which specific forums did the Boss have accounts on?
 
@@ -27,7 +29,9 @@ I navigate to `/home/vt/.config`{: .filepath} and find a folder called `BraveSof
 
 ![Brave Logins](/assets/img/2023-07-02/2_1.png)
 
-### 3. Delivery (Warmup - 242 points)
+**Answer**: grasscity.com, thctalk.com
+
+### 3. Delivery
 
 **Prompt**: What was the location where the boss had ordered a delivery to on October 19, 2020?
 
@@ -37,7 +41,9 @@ I look around a little more in the `Default`{: .filepath} folder and come across
 
 I plug it into <https://www.epochconverter.com/> and confirm the address was last used on October 19, 2020.
 
-### 4. Product (Hard - 457 points)
+**Answer**: 9111 W McKinley St, Tolleson, AZ 85353
+
+### 4. Product
 
 **Prompt**: What equipment has the boss ordered?
 
@@ -57,7 +63,9 @@ Catting each of these gives the following links:
 
 The first and third links point to the same page: a listing for **Pyrex Container/Tube w/ Flat Bottom Chemistry Lab Glassware**.
 
-### 5. Thumb Drive (Tricky - 471 points)
+**Answer**: Pyrex Container/Tube w/ Flat Bottom Chemistry Lab Glassware
+
+### 5. Thumb Drive
 
 **Prompt**: What thumb drive was the Boss actively using?
 
@@ -73,7 +81,9 @@ Googling the device gives the color: **Red** and **Black**.
 
 ![Drive Color](/assets/img/2023-07-02/5_3.png){: width="500"}
 
-### 6. CRM (Baby - 397 points)
+**Answer**: Red, Black
+
+### 6. CRM
 
 **Prompt**: What is the URL of the Syndicate's CRM system?
 
@@ -81,11 +91,13 @@ Back to Brave Browser's `Default`{: .filepath} folder! I come across a file call
 
 ![Dope Dough Bookmark](/assets/img/2023-07-02/6_1.png){: width="500"}
 
-### 7. Password (Tricky - 800 points)
+**Answer**: http://dopedoughyignlbq.onion
+
+### 7. Password
 
 **Prompt**: What is the password to the syndicate's CRM system?
 
-In the `autofill`{: .filepath} table from [task 3](#3-delivery-warmup---242-points) I remember seeing a field for passwords, but they're not available in plaintext. So began a new learning objective: to mount an image as a VM to see if I can access those passwords.
+In the `autofill`{: .filepath} table from [task 3](#3-delivery) I remember seeing a field for passwords, but they're not available in plaintext. So began a new learning objective: to mount an image as a VM to see if I can access those passwords.
 
 I loaded the image into FTK Imager and exported it as a raw (dd) image. From there, I used VirtualBox to convert the raw image to VDI - a format VirtualBox would understand (`VBoxManage convertdd image.001 image.vdi --format VDI`).
 
@@ -119,7 +131,9 @@ Examining the entry gives me the password: **SdDlBtUE6fk6zAxb**.
 
 ![Plaintext Password](/assets/img/2023-07-02/7_8.png){: width="500"}
 
-### 8. Big Client (Hard - 800 points)
+**Answer**: SdDlBtUE6fk6zAxb
+
+### 8. Big Client
 
 **Prompt**: What is the name of the night club the Syndicate was providing drugs to in bulk?
 
@@ -156,7 +170,9 @@ Plugging these into Google Maps shows the location as **Embassy Nightclub**.
 
 ![Embassy Nightclub](/assets/img/2023-07-02/8_4.png){: width="500"}
 
-### 9. Hosting (Tricky - 709 points)
+**Answer**: Embassy Nightclub
+
+### 9. Hosting
 
 **Prompt**: What is the IP address their CRM is hosted at?
 
@@ -168,7 +184,9 @@ Running the head command gives the static IP for the CRM server: **49.12.108.254
 
 ![Email Header](/assets/img/2023-07-02/9_1.png){: width="700"}
 
-### 10. Tranche (Tricky - 643 points)
+**Answer**: 49.12.108.254
+
+### 10. Tranche
 
 **Prompt**: What are the cryptocurrency wallet addresses the Boss had transferred salary to in the last batch? (4 of them)
 
@@ -183,7 +201,9 @@ The addresses associated with those transactionsa re:
 - **1FrxcR5Fj593ZbgYiiApVVEUV6PjvYfnqn**
 - **1NJXwLN5uC1PwWQ7yfvJiQTG76UUXTkrxr**
 
-### 11. Retrospective (Hard - 1000 points)
+**Answer**: 1B4uj2cMcVncGSsH7myYQF571JaojxCy4T, 1HcZrD8gqDEtYhgmKJ2ECJAwA2stioknme, 1FrxcR5Fj593ZbgYiiApVVEUV6PjvYfnqn, 1NJXwLN5uC1PwWQ7yfvJiQTG76UUXTkrxr
+
+### 11. Retrospective
 
 **Prompt**: What cryptocurrency wallets did the Boss transfer salary to in February? (4 addresses)
 
@@ -207,6 +227,8 @@ Going back in the unallocated space a bit, we're able to find some wallets. Pull
 - **19yJnHa5smr63fdDBpwrJUBCkud8J6EbSn**
 
 ![Wallets](/assets/img/2023-07-02/11_4.png){: width="700"}
+
+**Answer**: 1GChpNsQ5x5yynwkuyXWq3Ea5JKYgdPKir, 1CwWyNGGCjzmkuQnQRRA7H6zsUjt2Y9d8g, 1PGLY1kFGi1RcZ4JAKY4v1VdcHJJwhY1Hs, 19yJnHa5smr63fdDBpwrJUBCkud8J6EbSn
 
 ### Debrief
 
