@@ -154,7 +154,7 @@ Plugging these coordinates in to Google Maps reveals Rocco was in **Windsor, ON*
 
 **Prompt**: What game did two beloved cartoon charachters promote in an Ad?
 
-This one is a ridiculous challenge, and I ended up consulting [Kevin Pagaro's writeup](https://www.stark4n6.com/2024/03/magnet-virtual-summit-2024-ctf-android.html) for this one. The "ad" is actually part of a tutorial located in the Android tips directory at `/data/data/com.google.android.apps.tips/files/download/asset/83c4649ef9ea3b1825f2ee682accc363a31a0e5d`{: .filepath}. Autopsy doesn't display it, so I extracted it and tacked on a .mp4 to the filename. 3/4 of the way through, the game **Tom and Jerry: Chase** is shown.
+This one is a ridiculous challenge, and I ended up consulting [Kevin Pagano's writeup](https://www.stark4n6.com/2024/03/magnet-virtual-summit-2024-ctf-android.html) for this one. The "ad" is actually part of a tutorial located in the Android tips directory at `/data/data/com.google.android.apps.tips/files/download/asset/83c4649ef9ea3b1825f2ee682accc363a31a0e5d`{: .filepath}. Autopsy doesn't display it, so I extracted it and tacked on a .mp4 to the filename. 3/4 of the way through, the game **Tom and Jerry: Chase** is shown.
 
 ![Tom and Jerry](/assets/img/2024-04-18/12_1.png){: width="500"}
 
