@@ -14,25 +14,33 @@ tags: [magnet, ios]
 
 **Problem**: There's an iOS logical image to analyze and a series of questions to answer.
 
-### 1. A few too many - How many different email accounts did the user have?
+### 1. A few too many
+
+**Prompt**: How many different email accounts did the user have?
 
 Perhaps the easiest way of going about this would be by using Autopsy's Keyword List search, which one can use to return strings that match an email regex, as well as the number of files with hits per match. I let it run for a while, then exported the results to CSV. 
 
 ![Keyword List Email Results](/assets/img/2024-03-27/1_1.png){: width="600" }
 
-blueisth3best@icloud.com has the most hits, and corresponds to the phone's iCloud account. A little further down is mborchardt@kurvalis.com, which can be found in the Chrome Preferences file and Slack folders. Further down still is borchardtmichael78@gmail.com, and also michaelkborchardt@proton.me, both present in Chrome data, giving a total of **four** significant email addresses.
+blueisth3best@icloud.com has the most hits, and corresponds to the phone's iCloud account. A little further down is mborchardt@kurvalis.com, which can be found in the Chrome `Preferences`{: .filepath} file and Slack folders. Further down still is borchardtmichael78@gmail.com, and also michaelkborchardt@proton.me, both present in Chrome data, giving a total of **four** significant email addresses.
 
-### 2. autoFill me in on the deets - Which email, other than their own, was autofilled in Chrome?
+### 2. autoFill me in on the deets
 
-In the Chrome data folder (`/private/var/mobile/Containers/Data/Application/0B468A6F-8837-4A85-BF4D-1EF523683946/Library/Google/Chrome/Default`{: .filepath}) there's a database `Web Data`{: .filepath} which contains an autofill table. In this table there's an entry for **tlouis@kurvalis.com**.
+**Prompt**: Which email, other than their own, was autofilled in Chrome?
+
+In the Chrome data folder (`/private/var/mobile/Containers/Data/Application/0B468A6F-8837-4A85-BF4D-1EF523683946/Library/Google/Chrome/Default`{: .filepath}) there's a database `Web Data`{: .filepath} which contains an `autofill`{: .filepath} table. In this table there's an entry for **tlouis@kurvalis.com**.
 
 ![Chrome Web Data autofill Table](/assets/img/2024-03-27/2_1.png){: width="700" }
 
-### 3. 1 fish 2 fish, red fish bluefish - According to the user’s email accounts, what is his favorite color?
+### 3. 1 fish 2 fish, red fish bluefish
+
+**Prompt**: According to the user’s email accounts, what is his favorite color?
 
 His iCloud email is blueisth3best@icloud.com, so it stands to reason his favorite color is **blue**.
 
-### 4. Chef Boyardee 2.0 - At which market was the user viewing Chef Pasquale tomato sauce?
+### 4. Chef Boyardee 2.0
+
+**Prompt**: At which market was the user viewing Chef Pasquale tomato sauce?
 
 I found the photo library in `/private/var/mobile/Media/DCIM/100APPLE`{: .filepath}. `IMG_0034.MOV`{: .filepath} shows the Pasquale sauce in question.
 
@@ -46,9 +54,11 @@ Plugging these into Google Maps shows the photo was taken at the **Marché Atwat
 
 ![Marché Atwater](/assets/img/2024-03-27/4_3.png){: width="600" }
 
-### 5. Staying stylish! - What color shirt did the user chose to put their snapchat bitmoji in?
+### 5. Staying stylish!
 
-On this phone, Snapchat user data is stored in `/private/var/mobile/Containers/Data/Application/A5579AA5-A9D6-48BA-B937-4BFF7742ED88`{: .filepath}. In this folder, `Library/Caches/SCCache/com.pinterest.PINDiskCache.snapcodeData`{: .filepath} is reputed to contain cached Snapchat images, and sure enough, there's an interesting file named `qr-add%2F780e51cecf2a174138080341e5a3147f`{: .filepath} that contains JSON data, with a field imageData corresponding to a base64ish string.
+**Prompt**: What color shirt did the user chose to put their snapchat bitmoji in?
+
+On this phone, Snapchat user data is stored in `/private/var/mobile/Containers/Data/Application/A5579AA5-A9D6-48BA-B937-4BFF7742ED88`{: .filepath}. In `Library/Caches/SCCache/com.pinterest.PINDiskCache.snapcodeData`{: .filepath} there's an interesting file named `qr-add%2F780e51cecf2a174138080341e5a3147f`{: .filepath} that contains JSON data, with a field `imageData`{: .filepath} corresponding to a base64ish string.
 
 ![Snapchat Cached Image File](/assets/img/2024-03-27/5_1.png){: width="700" }
 
@@ -62,7 +72,9 @@ Scanning the Snapcode with the Snapchat app on my phone reveals Michael's avatar
 
 I could have just looked up Michael's username, m_b227468, which is present in the `Documents/user.plist`{: .filepath} file within the Snapchat data folder, but I thought this roundabout way was cool.
 
-### 6. Picking up Steam - What server was the user interested in making?
+### 6. Picking up Steam
+
+**Prompt**: What server was the user interested in making?
 
 Looking at his Chrome History (`/private/var/mobile/Containers/Data/Application/0B468A6F-8837-4A85-BF4D-1EF523683946/Library/Application Support/Google/Chrome/Default/History`{: .filepath}), Michael was interested in setting up a CS GO or Rust server.
 
@@ -72,7 +84,9 @@ But, looking at some Discord snippets (`/private/var/mobile/Containers/Data/Appl
 
 ![Discord Log](/assets/img/2024-03-27/6_2.png){: width="700" }
 
-### 7. Overlooking Excellence - What Sports stadium was the user overlooking at Camilien-Houde belvedere?
+### 7. Overlooking Excellence
+
+**Prompt**: What Sports stadium was the user overlooking at Camilien-Houde belvedere?
 
 Going back to Michael's photo library, there's many photos of a city vista, with a sign indicating places of interest. On one photo (`IMG_0023.HEIC`{: .filepath}), one such marked place is the Stade Olympique, or **Olympic Stadium**.
 
@@ -82,7 +96,9 @@ Running exiftool on the image, extracting the GPS coordinates (`exiftool IMG_002
 
 ![Michael's Location](/assets/img/2024-03-27/7_2.png){: width="600" }
 
-### 8. Out of this world - Which terms and conditions site on Tik Tok is named after a space formation?
+### 8. Out of this world
+
+**Prompt**: Which terms and conditions site on Tik Tok is named after a space formation?
 
 I extracted the TikTok data folder (`/private/var/mobile/Containers/Data/Application/4F9E5274-DDB7-422E-8629-234C84D24F4E`{: .filepath}) and ran a grep for TikTok URLs.
 
@@ -99,13 +115,17 @@ Combing through the list, there's a URL <https://www.tiktok.com/forest/nebula/ad
 
 ![Nebula ToC](/assets/img/2024-03-27/8_2.png){: width="600" }
 
-### 9. You're going to crush this one! - What light-hearted game did the user spend the most time on?
+### 9. You're going to crush this one!
 
-The iOS Screen Time database can be found at `/private/var/mobile/Library/Application Support/com.apple.remotemanagementd/RMAdminStore-Local.sqlite`{: .filepath}, and the ZUSAGETIMEDITEM table gives an idea of usage per application. I exported the table to CSV and sorted by the ZTOTALTIMEINSECONDS column. A few rows down is com.midasplayer.apps.candycrushsaga (**Candy Crush Saga**) clocking in at 577 seconds.
+**Prompt**: What light-hearted game did the user spend the most time on?
+
+The iOS Screen Time database can be found at `/private/var/mobile/Library/Application Support/com.apple.remotemanagementd/RMAdminStore-Local.sqlite`{: .filepath}, and the `ZUSAGETIMEDITEM`{: .filepath} table gives an idea of usage per application. I exported the table to CSV and sorted by the `ZTOTALTIMEINSECONDS`{: .filepath} column. A few rows down is com.midasplayer.apps.candycrushsaga (**Candy Crush Saga**) clocking in at 577 seconds.
 
 ![Screen Time Data](/assets/img/2024-03-27/9_1.png){: width="600" }
 
-### 10. Which way? - Which cardinal direction was the user turning when heading towards RHEINFAHRE?
+### 10. Which way?
+
+**Prompt**: Which cardinal direction was the user turning when heading towards RHEINFAHRE?
 
 One of the images in Michael's photo library (`IMG_0068.HEIC`{: .filepath}) features a sign for the RHEINFAHRE in question.
 
@@ -115,13 +135,15 @@ Running exiftool on the image gives the GPS coordinates (`exiftool IMG_0068.HEIC
 
 ![Street View](/assets/img/2024-03-27/10_2.png){: width="400" }
 
-### 11. First class seats out of here! - What 4-star Airline flies the most passengers out of the same terminal our user flew out of in Germany?
+### 11. First class seats out of here!
+
+**Prompt**: What 4-star Airline flies the most passengers out of the same terminal our user flew out of in Germany?
 
 Some network history can be found at `/private/var/preferences/com.apple.wifi.known-networks.plist`{: .filepath}. There's an entry for Airport-Frankfurt, added on January 5, 2023 that was accessed as late as 07:21:29 EST, or 12:21:29 CET.
 
 ![Known Networks](/assets/img/2024-03-27/11_1.png){: width="700" }
 
-From the `Photos.sqlite`{: .filepath} database (`/private/var/mobile/Media/PhotoData`{: .filepath}), there's an entry in the ZPHOTOSHIGHLIGHT table for Newark Liberty International Airport on December 23, 2022. On an after this date there is activity in Germany.
+From the `Photos.sqlite`{: .filepath} database (`/private/var/mobile/Media/PhotoData`{: .filepath}), there's an entry in the `ZPHOTOSHIGHLIGHT`{: .filepath} table for Newark Liberty International Airport on December 23, 2022. On and after this date there is activity in Germany.
 
 ![Photos.sqlite](/assets/img/2024-03-27/11_2.png)
 
@@ -131,15 +153,19 @@ Using a new (to me) site <https://www.flightera.net>, I'm able to see there were
 
 All these flights took off from Terminal 1. Whew, that was a lot of work! The Frankfurt Airport Wikipedia says Terminal 1 is mainly used by **Lufthansa**, and a quick Google search verifies its 4-star status.
 
-### 12. Boosting into a new era - The user was trying to learn German through an application, what promotion featuring a rocket was most commonly shown to the user?
+### 12. Boosting into a new era
+
+**Prompt**: The user was trying to learn German through an application, what promotion featuring a rocket was most commonly shown to the user?
 
 Duolingo application data can be found in `/private/var/mobile/Containers/Data/Application/89A6AE48-C46D-4405-A187-C7FF439873F3`{: .filepath}. Here, I stumbled on a folder `Documents/plus-ad-video`{: .filepath} that contains a few promotional videos. The **Duolingo_NYPromo_2023_EN.mp4** video prominently features a rocket in its first frame.
 
 ![Duolingo Promos](/assets/img/2024-03-27/12_1.png){: width="500" }
 
-### 13. Q-uestion - What Chinese networking website was associated with Linkedin?
+### 13. Q-uestion
 
-I pointed the grep I used in <a href="#8-out-of-this-world---which-terms-and-conditions-site-on-tik-tok-is-named-after-a-space-formation">question 8</a> at the LinkedIn application directory (`/private/var/containers/Bundle/Application/4D867879-C7BD-4906-8865-EAE0AA4E6236`{: .filepath}). Taking into account the question title, I filter down to URLs with the letter q in them.
+**Prompt**: What Chinese networking website was associated with Linkedin?
+
+I pointed the grep I used in [task 8](#8-out-of-this-world) at the LinkedIn application directory (`/private/var/containers/Bundle/Application/4D867879-C7BD-4906-8865-EAE0AA4E6236`{: .filepath}). Taking into account the question title, I filter down to URLs with the letter q in them.
 
 ```bash
 grep -EIroah 'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)' \
@@ -154,19 +180,23 @@ The first URL, **http://user.qzone.qq.com**, seems to be what we're looking for.
 
 ![QQZone](/assets/img/2024-03-27/13_2.png){: width="300"}
 
-### 14. You are here - Which airline lounge was viewed?
+### 14. You are here
 
-I did a keyword search for 'lounge' in Autopsy and came across a file `PPSQLDatabase.db`{: .filepath}, which seems to contain some interesting user personalization data. One such piece of data in the loc_records table names the **Lufthansa Senator Lounge**. The sources table indicates this came from Apple Maps activity.
+**Prompt**: Which airline lounge was viewed?
+
+I did a keyword search for 'lounge' in Autopsy and came across a file `PPSQLDatabase.db`{: .filepath}, which seems to contain some interesting user personalization data. One such piece of data in the `loc_records`{: .filepath} table names the **Lufthansa Senator Lounge**. The `sources`{: .filepath} table indicates this came from Apple Maps activity.
 
 ![PPSQLDatabase.db](/assets/img/2024-03-27/14_1.png)
 
-### 15. A river runs through it - At which location did the user travel the most meters according to Apple? (City, Country)
+### 15. A river runs through it
 
-I began nosing around in Apple's Health app folder (`/private/var/mobile/Library/Health`{: .filepath}), figuring it would probably be a good place for finding location and distance information. The `healthdb_secure.sqlite`{: .filepath} turns out to have a lot of forensic value. In this database, it seems the samples table indicates health information of certain types for "samples" of user activity, and the quantity_samples table gives "quantities" corresponding to those activities. A data_type of 8 in the sample table corresponds to distance traveled in meters; those distances can be found in the quantity_samples table. With the help of a SQL query, I was able to parse out some timestamps and meters from the database.
+**Prompt**: At which location did the user travel the most meters according to Apple? (City, Country)
+
+I began nosing around in Apple's Health app folder (`/private/var/mobile/Library/Health`{: .filepath}), figuring it would probably be a good place for finding location and distance information. The `healthdb_secure.sqlite`{: .filepath} database turns out to have a lot of forensic value. In this database, it seems the `samples`{: .filepath} table indicates health information of certain types for "samples" of user activity, and the `quantity_samples`{: .filepath} table gives "quantities" corresponding to those activities. A `data_type`{: .filepath} of 8 in the `samples`{: .filepath} table corresponds to distance traveled in meters; those distances can be found in the `quantity_samples`{: .filepath} table. With the help of a SQL query, I was able to parse out some timestamps and meters from the database.
 
 ![Distances in Meters](/assets/img/2024-03-27/15_1.png){: width="400"}
 
-So we're looking for location information timestamped between 694186518 and 694187107. There's another database I came across, `Cache.sqlite`{: .filepath} (`/private/var/mobile/Library/Caches/com.apple.routined`{: .filepath}) with a table ZRTCLLOCATIONMO that contains location information and timestamps. Another SQL query later and I have a shortlist.
+So we're looking for location information timestamped between 694186518 and 694187107. There's another database I came across, `Cache.sqlite`{: .filepath} (`/private/var/mobile/Library/Caches/com.apple.routined`{: .filepath}) with a table `ZRTCLLOCATIONMO`{: .filepath} that contains location information and timestamps. Another SQL query later and I have a shortlist.
 
 ![Coordinates with Timestamps](/assets/img/2024-03-27/15_2.png){: width="400"}
 
@@ -174,7 +204,9 @@ All these coordinates point to **Eltville, Germany**.
 
 ![Eltville](/assets/img/2024-03-27/15_3.png){: width="500"}
 
-### 16. Lo siento, its going to be a cold one - What weather front was warned to the user by youtube?
+### 16. Lo siento, its going to be a cold one
+
+**Prompt**: What weather front was warned to the user by youtube?
 
 I needed a little help on this one, but I now know where to find logs of iOS notifications: `/private/var/mobile/Library/DuetExpertCenter/streams/userNotificationEvents/local`{: .filepath}. In here there's a notification log `690753503959675`{: .filepath}.
 

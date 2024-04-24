@@ -18,7 +18,7 @@ tags: [magnet, windows]
 
 **Prompt**: What non-standard email service has the user used previously?
 
-After running Autopsy's ingest modules on the E01, I noticed in Data Artifacts -> Web Form Autofill a Chrome autofill entry with value MichaelKBorchardt@protonmail.com, indicating the user had a **Protonmail** account. 
+After running Autopsy's ingest modules on the E01, I noticed in `Data Artifacts -> Web Form Autofill`{: .filepath} a Chrome autofill entry with value MichaelKBorchardt@protonmail.com, indicating the user had a **Protonmail** account. 
 
 ![Protonmail Autofill](/assets/img/2024-03-29/1_1.png){: width="400" }
 
@@ -26,7 +26,7 @@ After running Autopsy's ingest modules on the E01, I noticed in Data Artifacts -
 
 **Prompt**: The user installed and ran a mobile device emulation program on their system. Which 2 versions of this software did the user install? (Format: SoftwareName V1/V2)
 
-Navigating in Autopsy to Data Artifacts -> Installed Programs gives an entry for BlueStacks 5 from the `SOFTWARE`{: .filepath} registry hive, which a quick Google verifies to be a mobile emulation program.
+Navigating in Autopsy to `Data Artifacts -> Installed Programs`{: .filepath} gives an entry for BlueStacks 5 from the `SOFTWARE`{: .filepath} registry hive, which a quick Google verifies to be a mobile emulation program.
 
 ![BlueStacks 5](/assets/img/2024-03-29/2_1.png){: width="500" } 
 
@@ -36,7 +36,7 @@ But in `C:\Program Files (x86)`{: .filepath} there's a folder `BlueStacks X`{: .
 
 **Prompt**: The user’s system is equipped with a 256GB NVMe SSD. What is the make and model of this drive?
 
-I start inspecting the `SYSTEM`{: .filepath} hive (`C:\Windows\System32\config\`{: .filepath}) in Autopsy and look at the usual suspects for device information. I come to the `ControlSet001\Enum\SCSI`{: .filepath} key and see a subkey `Disk&Ven_NVMe&Prod_LITEON_CA1-8D256`{: .filepath}. Hmm...NVMe, LITEON, this could be the drive we're looking for. Clicking on the subkey displays Autopsy's aggregated information on the drive, including the FriendlyName: **LITEON CA1-8D256-HP**.
+I start inspecting the `SYSTEM`{: .filepath} hive (`C:\Windows\System32\config\`{: .filepath}) in Autopsy and look at the usual suspects for device information. I come to the `ControlSet001\Enum\SCSI`{: .filepath} key and see a subkey `Disk&Ven_NVMe&Prod_LITEON_CA1-8D256`{: .filepath}. Hmm...NVMe, LITEON, this could be the drive we're looking for. Clicking on the subkey displays Autopsy's aggregated information on the drive, including the `FriendlyName`{: .filepath}: **LITEON CA1-8D256-HP**.
 
 ![Enum/SCSI key](/assets/img/2024-03-29/3_1.png){: width="500" }
 
@@ -72,7 +72,7 @@ Looking up the IP on <https://www.maxmind.com/en/geoip-demo> shows the IP origin
 
 **Prompt**: The user visited the Mastodon page of one user more than any others on the platform. What is the full legal name of the user Michael visited?
 
-In Autopsy, I look through Data Artifacts -> Web History and notice the only profile visits are to <https://mastodon.social/@scriptingosx@mastodon.social>.
+In Autopsy, I look through `Data Artifacts -> Web History`{: .filepath} and notice the only profile visits are to <https://mastodon.social/@scriptingosx@mastodon.social>.
 
 ![Mastodon History](/assets/img/2024-03-29/7_1.png)
 
@@ -98,17 +98,17 @@ Navigating to the repo, there's one entry for Sponsors: **yujincheng08**.
 
 **Prompt**: The user viewed a YouTube video by the creator BenBonk surrounding video game developers. Within this video, how many developers were involved with the project?
 
-Looking back at Autopsy's Data Artifacts -> Web History, there are three entries for YouTube videos with titles about game developers.
+Looking back at Autopsy's `Data Artifacts -> Web History`{: .filepath}, there are three entries for YouTube videos with titles about game developers.
 
 ![YouTube URLs](/assets/img/2024-03-29/9_1.png)
 
-Of those videos, only the third one at was created by BenBonk. Per the title, **20** developers were involved.
+Of those videos, only the third one was created by BenBonk. Per the title, **20** developers were involved.
 
 ### 10. The breakfast bell is ringing
 
 **Prompt**: The user has been doing some research lately on fast food items. What is, according to some experts, the unhealthiest food item of the bunch?
 
-Still in Autopsy's Data Artifacts -> Web History, there's a YouTube video entitled 'Ranking the "Healthiest" Taco Bell Items.'
+Still in Autopsy's `Data Artifacts -> Web History`{: .filepath}, there's a YouTube video entitled 'Ranking the "Healthiest" Taco Bell Items.'
 
 ![Taco Bell Video](/assets/img/2024-03-29/10_1.png)
 
@@ -118,7 +118,7 @@ The unhealthiest item they ranked in the video was the **Breakfast Crunchwrap Sa
 
 **Prompt**: In order to emulate an Android device, the user required some specialized management tools. What Android port is used by default with these services?
 
-In Autopsy -> Installed Programs there's an entry for WSA PacMan, which is a package manager for Windows Subsystem for Android.
+In Autopsy, under `Data Artifacts -> Installed Programs`{: .filepath} there's an entry for WSA PacMan, which is a package manager for Windows Subsystem for Android.
 
 ![WSA PacMan](/assets/img/2024-03-29/11_1.png){: width="600"}
 
@@ -130,7 +130,7 @@ I followed the first link from my preliminary Google search to the Github reposi
 
 **Prompt**: Michael lives just a mile south of a beautiful body of water. What is the name of this body of water
 
-One of the first autofill entries in Data Artifacts -> Web Form Autofill gives the first line of an address, from the Chrome Default profile.
+One of the first autofill entries in `Data Artifacts -> Web Form Autofill`{: .filepath} gives the first line of an address, from the Chrome Default profile.
 
 ![Address Autofill](/assets/img/2024-03-29/12_1.png){: width="700"}
 

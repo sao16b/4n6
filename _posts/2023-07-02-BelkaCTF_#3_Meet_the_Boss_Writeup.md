@@ -11,27 +11,35 @@ tags: [belkasoft, linux]
 
 **Problem**: We have the computer of a drug lord to comb through. We need to find evidence to lock him up for good this time.
 
-### 1. Username (Baby - 166 points) - What is the username on the imaged laptop?
+### 1. Username (Baby - 166 points)
+
+**Prompt**: What is the username on the imaged laptop?
 
 Linux again? Debian this time. It's still the same process as the last writeup. I load the image into Autopsy and navigate to the `/home`{: .filepath} directory. Just one user this time: **vt**.
 
-### 2. Forums (Warmup - 213 points) - Which specific forums did the Boss have accounts on?
+### 2. Forums (Warmup - 213 points)
 
-Autopsy loads any web searches it can find in Data Artifacts -> Web History. Looking at the entries, it seems Boss might have moved to the Brave browser, with searches such as "privacy browser" and visits to <https://brave.com>. Maybe there'll be some more history to look through if I go looking for files associated with Brave.
+**Prompt**: Which specific forums did the Boss have accounts on?
 
-I navigate to `/home/vt/.config`{: .filepath} and find a folder called `BraveSoftware`{: .filepath}. I poke around a bit until I end up in `/home/vt/.config/BraveSoftware/Brave-Browser/Default`{: .filepath}. Here there's a file called `Login Data`{: .filepath} which seems to be a database. In this file there's a table called logins. Here we see sites Boss has logged into. Two forums are listed, associated with domains **grasscity.com** and **thctalk.com**.
+Autopsy loads any web searches it can find in `Data Artifacts -> Web History`{: .filepath}. Looking at the entries, it seems Boss might have moved to the Brave browser, with searches such as "privacy browser" and visits to <https://brave.com>. Maybe there'll be some more history to look through if I go looking for files associated with Brave.
+
+I navigate to `/home/vt/.config`{: .filepath} and find a folder called `BraveSoftware`{: .filepath}. I poke around a bit until I end up in `/home/vt/.config/BraveSoftware/Brave-Browser/Default`{: .filepath}. Here there's a file called `Login Data`{: .filepath} which seems to be a database. In this file there's a table called `logins`{: .filepath}. Here we see sites Boss has logged into. Two forums are listed, associated with domains **grasscity.com** and **thctalk.com**.
 
 ![Brave Logins](/assets/img/2023-07-02/2_1.png)
 
-### 3. Delivery (Warmup - 242 points) - What was the location where the boss had ordered a delivery to on October 19, 2020?
+### 3. Delivery (Warmup - 242 points)
 
-I look around a little more in the `Default`{: .filepath} folder and come across a `Web Data`{: .filepath} file, which also seems to be a database. There's a table called autofill, and when I view the records, I see an entry for an address: **9111 W McKinley St, Tolleson, AZ 85353**. There's a timestamp for the last time it was used.
+**Prompt**: What was the location where the boss had ordered a delivery to on October 19, 2020?
+
+I look around a little more in the `Default`{: .filepath} folder and come across a `Web Data`{: .filepath} file, which also seems to be a database. There's a table called `autofill`{: .filepath}, and when I view the records, I see an entry for an address: **9111 W McKinley St, Tolleson, AZ 85353**. There's a timestamp for the last time it was used.
 
 ![Brave Web Data](/assets/img/2023-07-02/3_1.png)
 
 I plug it into <https://www.epochconverter.com/> and confirm the address was last used on October 19, 2020.
 
-### 4. Product (Hard - 457 points) - What equipment has the boss ordered?
+### 4. Product (Hard - 457 points)
+
+**Prompt**: What equipment has the boss ordered?
 
 This one sucked. I looked all over the `Brave-Browser/Default`{: .filepath} folder, checking every subdirectory and every file in every subdirectory. The only thing I found even a little related was a folder called `databases`{: .filepath} that contained three folders: `https_singin.ebay.com_0`{: .filepath}, `https_signup.ebay.com_0`{: .filepath}, and `https_www.ebay.com_0`{: .filepath}, with timestamps corresponding to October 19, 2020.
 
@@ -49,7 +57,9 @@ Catting each of these gives the following links:
 
 The first and third links point to the same page: a listing for **Pyrex Container/Tube w/ Flat Bottom Chemistry Lab Glassware**.
 
-### 5. Thumb Drive (Tricky - 471 points) - What thumb drive was the Boss actively using?
+### 5. Thumb Drive (Tricky - 471 points)
+
+**Prompt**: What thumb drive was the Boss actively using?
 
 I did some light google searching and found that one might be able to see USB devices in `/var/log`{: .filepath}. So I start looking through the files in Autopsy. I don't have to look for very long this time; in `kern.log4.gz`{: .filepath} there's a file called `kern.log.4`{: .filepath}. The very first few lines show a USB Mass Storage device was connected to the system.
 
@@ -63,15 +73,19 @@ Googling the device gives the color: **Red** and **Black**.
 
 ![Drive Color](/assets/img/2023-07-02/5_3.png){: width="500"}
 
-### 6. CRM (Baby - 397 points) - What is the URL of the Syndicate's CRM system?
+### 6. CRM (Baby - 397 points)
+
+**Prompt**: What is the URL of the Syndicate's CRM system?
 
 Back to Brave Browser's `Default`{: .filepath} folder! I come across a file called `Bookmarks.bak`{: .filepath} that has some interesting, drug-related bookmarks in it. I recall a file named `dough.dat`{: .filepath} in discovery, so of the bookmarks, I figure the most likely for a CRM would be Dope Dough at **http://dopedoughyignlbq.onion**.
 
 ![Dope Dough Bookmark](/assets/img/2023-07-02/6_1.png){: width="500"}
 
-### 7. Password (Tricky - 800 points) - What is the password to the syndicate's CRM system?
+### 7. Password (Tricky - 800 points)
 
-In the autofill table from an earlier task I remember seeing a field for passwords, but they're not available in plaintext. So began a new learning objective: to mount an image as a VM to see if I can access those passwords.
+**Prompt**: What is the password to the syndicate's CRM system?
+
+In the `autofill`{: .filepath} table from [task 3](#3-delivery-warmup---242-points) I remember seeing a field for passwords, but they're not available in plaintext. So began a new learning objective: to mount an image as a VM to see if I can access those passwords.
 
 I loaded the image into FTK Imager and exported it as a raw (dd) image. From there, I used VirtualBox to convert the raw image to VDI - a format VirtualBox would understand (`VBoxManage convertdd image.001 image.vdi --format VDI`).
 
@@ -105,9 +119,11 @@ Examining the entry gives me the password: **SdDlBtUE6fk6zAxb**.
 
 ![Plaintext Password](/assets/img/2023-07-02/7_8.png){: width="500"}
 
-### 8. Big Client (Hard - 800 points) - What is the name of the night club the Syndicate was providing drugs to in bulk?
+### 8. Big Client (Hard - 800 points)
 
-I can't log in to the CRM, because the link is no longer functional. But I can start poking around in some of his accounts. His email seems like a good place to start. I log in to Proton Mail with his credentials (which I also pull from `words.kdbx`{: .filepath}) and run a search for crm.
+**Prompt**: What is the name of the night club the Syndicate was providing drugs to in bulk?
+
+I can't log in to the CRM, because the link is no longer functional. But I can start poking around in some of his accounts. His email seems like a good place to start. I log in to Proton Mail with his credentials (which I also pull from `words.kdbx`{: .filepath}) and run a search for "crm".
 
 ![Proton Mail crm Search](/assets/img/2023-07-02/8_1.png){: width="500"}
 
@@ -140,7 +156,9 @@ Plugging these into Google Maps shows the location as **Embassy Nightclub**.
 
 ![Embassy Nightclub](/assets/img/2023-07-02/8_4.png){: width="500"}
 
-### 9. Hosting (Tricky - 709 points) - What is the IP address their CRM is hosted at?
+### 9. Hosting (Tricky - 709 points)
+
+**Prompt**: What is the IP address their CRM is hosted at?
 
 Since the site isn't functional anymore, maybe I could look at the email and see if I can pull the IP out of it.
 
@@ -150,7 +168,9 @@ Running the head command gives the static IP for the CRM server: **49.12.108.254
 
 ![Email Header](/assets/img/2023-07-02/9_1.png){: width="700"}
 
-### 10. Tranche (Tricky - 643 points) - What are the cryptocurrency wallet addresses the Boss had transferred salary to in the last batch? (4 of them)
+### 10. Tranche (Tricky - 643 points)
+
+**Prompt**: What are the cryptocurrency wallet addresses the Boss had transferred salary to in the last batch? (4 of them)
 
 There's a file of interest in `/home/vt/Documents/copy/dough_apr`{: .filepath} called `wallet.dat`{: .filepath}. I export the file to my local computer. Loading the file into the Bitcoin Core app shows the transactions; the ones with labels give the addresses we're looking for.
 
@@ -163,7 +183,9 @@ The addresses associated with those transactionsa re:
 - **1FrxcR5Fj593ZbgYiiApVVEUV6PjvYfnqn**
 - **1NJXwLN5uC1PwWQ7yfvJiQTG76UUXTkrxr**
 
-### 11. Retrospective (Hard - 1000 points) - What cryptocurrency wallets did the Boss transfer salary to in February? (4 addresses)
+### 11. Retrospective (Hard - 1000 points)
+
+**Prompt**: What cryptocurrency wallets did the Boss transfer salary to in February? (4 addresses)
 
 If we cat the `wallet.dat`{: .filepath} file, we can see that there's repeated strings "fromaccount" and "timesmart" followed by what looks like a timestamp.
 

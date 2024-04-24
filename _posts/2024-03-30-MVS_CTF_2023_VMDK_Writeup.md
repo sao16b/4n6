@@ -81,7 +81,7 @@ Interestingly, the `DhcpIPAddress`{: .filepath} is 10.202.0.2, the IP address fo
 
 **Prompt**: Not including their work account or gmail, what other email address did the primary user of the system have?
 
-This one was easy. In Autopsy, under Data Artifacts -> Web Form Autofill there are a few email addresses for the Default profile in Chrome: sgarza@kurvalis.com, sgarza1284@gmail.com, and **sgarza1284@proton.me**.
+This one was easy. In Autopsy, under `Data Artifacts -> Web Form Autofill`{: .filepath} there are a few email addresses for the Default profile in Chrome: sgarza@kurvalis.com, sgarza1284@gmail.com, and **sgarza1284@proton.me**.
 
 ![Autofill](/assets/img/2024-03-30/7_1.png){: width="700"}
 
@@ -89,7 +89,7 @@ This one was easy. In Autopsy, under Data Artifacts -> Web Form Autofill there a
 
 **Prompt**: What is the name for the bookmark item added on December 11, 2022 at 2:04:54 AM (local system time)?
 
-The user's Chrome bookmarks are in `C:\Users\sgarza\AppData\Local\Google\Chrome\User Data\Default\Bookmarks`{: .filepath}. It's a JSON file, and each bookmark has a "date_added" Chromium timestamp. Plugging these into Dcode, it seems that the bookmarks Bookmarks bar, Other bookmarks, and Mobile bookmarks were added at 2:04:54 AM, though the answer was **Mobile bookmarks**.
+The user's Chrome bookmarks are in `C:\Users\sgarza\AppData\Local\Google\Chrome\User Data\Default\Bookmarks`{: .filepath}. It's a JSON file, and each bookmark has a `date_added`{: .filepath} Chromium timestamp. Plugging these into Dcode, it seems that the bookmarks Bookmarks bar, Other bookmarks, and Mobile bookmarks were added at 2:04:54 AM, though the answer was **Mobile bookmarks**.
 
 ![Bookmarks](/assets/img/2024-03-30/8_1.png){: width="400"}
 
@@ -99,7 +99,7 @@ The user's Chrome bookmarks are in `C:\Users\sgarza\AppData\Local\Google\Chrome\
 
 **Prompt**: What is the GUID of the PowerShell module found on the system?
 
-In Autopsy, Data Artifacts -> Installed Programs says Google Cloud SDK is installed on the system. I find the folder for it in `C:\Program Files (x86)\Google\Cloud SDK`{: .filepath}. I look around for a while and stumble upon a file `powershell-windows.manifest`{: .filepath} in `.install`{: .filepath} pointing to various PowerShell files. 
+In Autopsy, `Data Artifacts -> Installed Programs`{: .filepath} says Google Cloud SDK is installed on the system. I find the folder for it in `C:\Program Files (x86)\Google\Cloud SDK`{: .filepath}. I look around for a while and stumble upon a file `powershell-windows.manifest`{: .filepath} in `.install`{: .filepath} pointing to various PowerShell files. 
 
 ![PowerShell Manifest](/assets/img/2024-03-30/9_1.png){: width="700"}
 

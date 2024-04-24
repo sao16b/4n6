@@ -11,23 +11,29 @@ tags: [belkasoft, windows]
 
 **Problem**: A 17-year old girl has gone missing after a party. We're tasked with finding out what happened, armed only with open-source tools and an E01 image of her laptop.
 
-### 1. User (Baby - 150 points) - Who is the laptop user?
+### 1. User (Baby - 150 points)
 
-I opened the E01 in AccessData FTK Imager. The `SOFTWARE`{: .filepath} registry file contains information about user profiles, so I exported the file from `C:\Windows\config`{: .filepath} and stuck it into RegRipper. The ProfileList key reveals the `C:\Users\maria`{: .filepath} path is associated with SID **S-1-5-21-1751165416-2537581589-3438259779-1001**.
+**Prompt**: Who is the laptop user?
+
+I opened the E01 in AccessData FTK Imager. The `SOFTWARE`{: .filepath} registry file contains information about user profiles, so I exported the file from `C:\Windows\System32\config`{: .filepath} and stuck it into RegRipper. The `ProfileList`{: .filepath} key reveals the `C:\Users\maria`{: .filepath} path is associated with SID **S-1-5-21-1751165416-2537581589-3438259779-1001**.
 
 ![RegRipper Results](/assets/img/2023-06-27_1/1_1.png){: width="300" }
 
-Alternatively (and perhaps more easily), one can load the image into Autopsy and navigate to OS Accounts.
+Alternatively (and perhaps more easily), one can load the image into Autopsy and navigate to `OS Accounts`{: .filepath}.
 
 ![OS Accounts](/assets/img/2023-06-27_1/1_2.png)
 
-### 2. Missing stuff (Warmup - 200 points) - What phone model did the girl use?
+### 2. Missing stuff (Warmup - 200 points)
 
-Maybe we can use EXIF data from photos she took. A quick glance around the image shows a promising `Pictures`{: .filepath} folder in her OneDrive (`C:\Users\maria\OneDrive\Pictures`{: .filepath}). I exported the folder to my local machine and spun up Ubuntu. I ran the following command in the directory: `exiftool -r . | grep -B 20 'Model'`. This command runs exiftool recursively on the folder and pipes it into a grep command, which searches for the keyword 'Model' and prints out results with 20 prepending lines. The very first hit is on `C:\Users\maria\OneDrive\Pictures\Meh\1bb3ed5218a057d9e1798f05064854e5.jpg`{: .filepath}. Exiftool says the Artist is Maria, and the Camera Model is **iPhone 8**.
+**Prompt**: What phone model did the girl use?
+
+Maybe we can use EXIF data from photos she took. A quick glance around the image shows a promising `Pictures`{: .filepath} folder in her OneDrive (`C:\Users\maria\OneDrive`{: .filepath}). I exported the folder to my local machine and spun up Ubuntu. I ran the following command in the directory: `exiftool -r . | grep -B 20 'Model'`. This command runs exiftool recursively on the folder and pipes it into a grep command, which searches for the keyword 'Model' and prints out results with 20 prepending lines. The very first hit is on `C:\Users\maria\OneDrive\Pictures\Meh\1bb3ed5218a057d9e1798f05064854e5.jpg`{: .filepath}. Exiftool says the Artist is Maria, and the Camera Model is **iPhone 8**.
 
 ![Exiftool Results](/assets/img/2023-06-27_1/2_1.png){: width="500" }
 
-### 3. Going further (Warmup - 200 points) - What is the version number of the girl's email software?
+### 3. Going further (Warmup - 200 points)
+
+**Prompt**: What is the version number of the girl's email software?
 
 I thought diving back into the registry might be a good idea for this one. `NTUSER.DAT`{: .filepath} contains information regarding recent applications. If Maria used email frequently maybe we'd find something there. I exported the file from `C:\Users\maria`{: .filepath} and ran RegRipper on it. Searching for Mail shows the Start Menu Mail app points to Mozilla Thunderbird.
 
@@ -37,13 +43,17 @@ I get lucky with a search for Thunderbird in the same file and find version **91
 
 ![RegRipper Thunderbird](/assets/img/2023-06-27_1/3_2.png){: width="300" }
 
-### 4. Boyfriend? (Baby - 150 points) - Who has recently invited the girl to meet up?
+### 4. Boyfriend? (Baby - 150 points)
 
-In Autopsy, I navigated to Data Artifacts -> E-Mail Messages -> Default -> Default to see Maria's local inbox. Sorting the results by Date Received shows an email from **jamegkmail@protonmail.com** on July 25th inviting Maria to a 'Unique Place.'
+**Prompt**: Who has recently invited the girl to meet up?
+
+In Autopsy, I navigated to `Data Artifacts -> E-Mail Messages -> Default -> Default`{: .filepath} to see Maria's local inbox. Sorting the results by `Date Received`{: .filepath} shows an email from **jamegkmail@protonmail.com** on July 25th inviting Maria to a 'Unique Place.'
 
 ![Unique Place Email](/assets/img/2023-06-27_1/4_1.png)
 
-### 5. Final! (Hard - 700 points) - What is the chat password?
+### 5. Final! (Hard - 700 points)
+
+**Prompt**: What is the chat password?
 
 First I need to find a chat application. Looking back through the `NTUSER.DAT`{: .filepath} file, I see an application called WickrMe that looks unfamiliar.
 
@@ -73,7 +83,9 @@ On a hunch I thought the decoded text might contain a space, which Base64 does n
 
 ![Script Results](/assets/img/2023-06-27_1/5_4.png){: width="600" }
 
-### 6. Not final (Hard - 700 points) - What software was mentioned in the invitation?
+### 6. Not final (Hard - 700 points)
+
+**Prompt**: What software was mentioned in the invitation?
 
 I wasn't able to decrypt the `wickr_sqlite.db`{: .filepath} file the previous task referenced, but it turns out I didn't need to. In my perusal of `AppData`{: .filepath} I checked the `Local`{: .filepath} folder for good measure. There's a `Wickr, LLC`{: .filepath} folder containing a `WickrMe`{: .filepath} folder. Looking through the contents of the `WickrMe`{: .filepath} folder led me to the following path: `C:\Users\maria\AppData\Local\Wickr, LLC\WickrMe\temp\attachments`{: .filepath}. In that folder is an `invitation.ics`{: .filepath} file, only it's not a standard ics file. Autopsy shows that it actually contains two items: `eventpass.txt`{: .filepath} and `invitation.wav`{: .filepath}.
 
@@ -83,7 +95,9 @@ I listened to the `invitation.wav`{: .filepath} file. Morse code! I exported the
 
 ![Decoded Morse Code](/assets/img/2023-06-27_1/6_2.png){: width="400"}
 
-### 7. BelkaRestaurant (Tricky - 500 points) - Where was Maria invited to?
+### 7. BelkaRestaurant (Tricky - 500 points)
+
+**Prompt**: Where was Maria invited to?
 
 Looking up SilentEye shows it's a steganography application. I downloaded it and loaded the `invitation.wav`{: .filepath} file into it to decode. Out pops `cup of coffees7eg.jpg`{: .filepath}.
 
@@ -91,15 +105,19 @@ Looking up SilentEye shows it's a steganography application. I downloaded it and
 
 I looked through the EXIF data and tried a reverse Google image search but nothing fit as a possible answer. I hemmed and hawed for a little while before consulting the official writeup for a hint. It pointed me to two places: Maria's search history and the `eventpass.txt`{: .filepath} file I hadn't used yet, which contained the simple string 'specialevent.'
 
-Back to Autopsy to look through Maria's search history (Data Artifacts -> Web History). I notice she visited <https://futureboy.us>, which is a site hosting a steganography tool! I uploaded the image and passed in 'specialevent' as the password, and we have our location: **Special Belkunir Pashe Restaurant**.
+Back to Autopsy to look through Maria's search history (`Data Artifacts -> Web History`{: .filepath}). I notice she visited <https://futureboy.us>, which is a site hosting a steganography tool! I uploaded the image and passed in 'specialevent' as the password, and we have our location: **Special Belkunir Pashe Restaurant**.
 
 ![Futureboy](/assets/img/2023-06-27_1/7_2.png){: width="300"}
 
-### 8. Open to call (Baby - 150 points) - What is the restaurant phone number?
+### 8. Open to call (Baby - 150 points)
+
+**Prompt**: What is the restaurant phone number?
 
 No results for Special Belkunir Pashe Restaurant anywhere I could find. I went back to the official writeup to learn I needed to use Open Street Map. But putting it into Open Street Map returned no results for me. Needed to be there, I guess.
 
-### 9. Backup (Warmup - 200 points) - What kind of second factors can I use to download the girl's iCloud backup?
+### 9. Backup (Warmup - 200 points)
+
+**Prompt**: What kind of second factors can I use to download the girl's iCloud backup?
 
 For this one we have four options:
 
@@ -110,13 +128,15 @@ For this one we have four options:
 
 The site gives a link describing iCloud acquisition and analysis. It says there's only two types of second factors: SMS codes to a phone number linked to an iCloud account, and a code sent to a trusted device. That leaves options 1, 2, and 3, but we don't have Maria's phone, so the answers are **1** and **3**.
 
-### 10. Mystery unveiled (Baby - 150 points) - Can you figure out where the girl is?
+### 10. Mystery unveiled (Baby - 150 points)
+
+**Prompt**: Can you figure out where the girl is?
 
 For this step the site linked a database file called `consolidated.db`{: .filepath} that was obtained from the iCloud backup. Opening it in DBBrowser for SQLite shows a series of tables.
 
 ![consolidated.db](/assets/img/2023-06-27_1/10_1.png){: width="300"}
 
-GeoFences looks promising. Maybe I can get a lat/long? Browsing the table shows two records with lat/long information and timestamps. The most recent entry points to 47.5398556132234, 19.0302273633114.
+`GeoFences`{: .filepath} looks promising. Maybe I can get a lat/long? Browsing the table shows two records with lat/long information and timestamps. The most recent entry points to 47.5398556132234, 19.0302273633114.
 
 ![GeoFences Table](/assets/img/2023-06-27_1/10_2.png){: width="700"}
 

@@ -30,7 +30,7 @@ A quick keyword search in Autopsy gives a hit in `/data/data/com.twitter.android
 
 **Prompt**: What Southern state’s sports team did Rocco search up?
 
-In Autopsy, under Data Artifacts -> Web History, Chrome History reveals Rocco searched up the **Louisiana Ragin' Cajuns**.
+In Autopsy, under `Data Artifacts -> Web History`{: .filepath}, Chrome history reveals Rocco searched up the **Louisiana Ragin' Cajuns**.
 
 ![Chrome History](/assets/img/2024-04-18/2_1.png){: width="600" }
 
@@ -46,7 +46,7 @@ Back in the Twitter databases (`/data/data/com.twitter.android/databases`{: .fil
 
 **Prompt**: What is the SIM operator name?
 
-SIM information can be found in the `telephony.db`{: .filepath} database, which I found in the device encrypted storage at `/data/user_de/0/com.android.providers.telephony/databases`{: .filepath}. The `siminfo`{: .filepath} table contains three entries with two carriers: T-Mobile and **Boost Mobile**. Considering that Boost Mobile has the data_roaming column set to 1, and the iso_country column set to 'us', that's probably the primary SIM operator.
+SIM information can be found in the `telephony.db`{: .filepath} database, which I found in the device encrypted storage at `/data/user_de/0/com.android.providers.telephony/databases`{: .filepath}. The `siminfo`{: .filepath} table contains three entries with two carriers: T-Mobile and **Boost Mobile**. Considering that Boost Mobile has the `data_roaming`{: .filepath} column set to 1, and the `iso_country`{: .filepath} column set to 'us', that's probably the primary SIM operator.
 
 ![telephony.db](/assets/img/2024-04-18/4_1.png){: width="600" }
 
@@ -54,7 +54,7 @@ SIM information can be found in the `telephony.db`{: .filepath} database, which 
 
 **Prompt**: What is the default Internet Browser?
 
-According to the Autopsy Data Artifacts -> Web History findings, it seems that **Chrome** is the most prevalent browser that was used.
+According to the Autopsy `Data Artifacts -> Web History`{: .filepath} findings, it seems that **Chrome** is the most prevalent browser that was used.
 
 ![Chrome History](/assets/img/2024-04-18/5_1.png){: width="600"}
 
@@ -66,7 +66,7 @@ New artifact alert! It seems you can find out default applications from the `rol
 
 **Prompt**: What conference did Rocco show interest in?
 
-In Autopsy, under Data Artifacts -> Web History, the Chrome History artifact indicates Rocco was interested in **Preppercon**.
+In Autopsy, under `Data Artifacts -> Web History`{: .filepath}, Chrome history indicates Rocco was interested in **Preppercon**.
 
 ![Preppercon](/assets/img/2024-04-18/6_1.png){: width="600"}
 
@@ -100,7 +100,7 @@ Combing through the Discord folders, I stumble on a database at `/data/data/com.
 
 **Prompt**: How many additional survival tips were provided in the $9 book Rocco was looking into?
 
-In Autopsy, under Data Artifacts -> Web History, there are a couple Amazon entries.
+In Autopsy, under `Data Artifacts -> Web History`{: .filepath}, there are a couple Amazon entries.
 
 ![Amazon Entries](/assets/img/2024-04-18/10_1.png){: width="700"}
 
@@ -136,7 +136,7 @@ This one is a ridiculous challenge, and I ended up consulting [Kevin Pagaro's wr
 
 ![Tom and Jerry](/assets/img/2024-04-18/12_1.png){: width="500"}
 
-I think this would take a while to find, but a way to find it would be to look through Autopsy's files through File Views -> File Types -> By MIME Type -> video.
+I think this would take a while to find, but a way to find it would be to look through Autopsy's files through `File Views -> File Types -> By MIME Type -> video`{: .filepath}.
 
 ### 13. Always achieving new heights
 
@@ -162,7 +162,7 @@ In the photos directory (`/data/media/0/DCIM/Camera`{: .filepath}) there's a liv
 
 **Prompt**: What fun outdoor activity location was searched for?
 
-In Autopsy, under Data Artifacts -> Web History, there's an entry from Chrome History for **Big Water Campgrounds** in **Timmins, Ontario**. 
+In Autopsy, under `Data Artifacts -> Web History`{: .filepath}, there's an entry from Chrome history for **Big Water Campgrounds** in **Timmins, Ontario**. 
 
 ![Big Water Campgrounds](/assets/img/2024-04-18/15_1.png){: width="600"}
 
@@ -220,7 +220,7 @@ It doesn't seem like Connections would say "Next Time!" when he assumedly won th
 
 **Prompt**: When is Rocco’s Bday? (YYYY-MM-DD)
 
-I know Facebook keeps track of birthdays, and luckily, we have a Facebook archive. I find Rocco's birthday in `/facebook-61554919820462-2024-01-06-49fzodcA/personal_information/profile_information/profile_information.html`{: .filepath}: **1974-09-29**.
+I know Facebook keeps track of birthdays, and luckily, we have a Facebook archive. I find Rocco's birthday in `/facebook-61554919820462-2024-01-06-49fzodcA/personal_information/profile_information/profile_information.html`{: .filepath}; his birthday is **1974-09-29**.
 
 ![Facebook Birthday](/assets/img/2024-04-18/20_1.png){: width="600"}
 

@@ -39,7 +39,7 @@ From the results of that query I can gather that Chadwick and Rocco met on **202
 
 **Prompt**: What subreddit was visited in a browser?
 
-In Autopsy, under Data Artifacts -> Web History, according to the Safari history at `/private/var/mobile/Library/Safari/History.db`{: .filepath}, the user visited the **Twitch** subreddit.
+In Autopsy, under `Data Artifacts -> Web History`{: .filepath}, according to the Safari history at `/private/var/mobile/Library/Safari/History.db`{: .filepath}, the user visited the **Twitch** subreddit.
 
 ![Reddit History](/assets/img/2024-04-01/2_1.png){: width="700" }
 
@@ -51,7 +51,7 @@ I do a keyword search for "myai" and come across a file `arroyo.db-wal`{: .filep
 
 ![arroyo.db-wal](/assets/img/2024-04-01/3_1.png){: width="600"}
 
-I extract `arroyo.db`{: .filepath} and browse the data in DBBrowser. In the table conversation_message, I identify the chat between Chadwick and the MyAI chatbot, and quickly form an SQL query to isolate just the messages between them.
+I extract `arroyo.db`{: .filepath} and browse the data in DBBrowser. In the table `conversation_message`{: .filepath}, I identify the chat between Chadwick and the MyAI chatbot, and quickly form an SQL query to isolate just the messages between them.
 
 ```sql
 SELECT
@@ -79,7 +79,7 @@ In `/private/var/mobile/Media/DCIM/100APPLE`{: .filepath} there's an image `IMG_
 
 **Prompt**: How many total words were typed on the device?
 
-It's so interesting that this is actually something that's logged on an iOS device. In the `user_model_database.sqlite`{: .filepath} database in `/private/var/mobile/Library/Keyboard`{: .filepath}, there's a table usermodeldurablerecords with key tium.totalWordsTyped. The value is **1814**.
+It's so interesting that this is actually something that's logged on an iOS device. In the `user_model_database.sqlite`{: .filepath} database in `/private/var/mobile/Library/Keyboard`{: .filepath}, there's a table `usermodeldurablerecords`{: .filepath} with key/value pairs. For key `tium.totalWordsTyped`{: .filepath}, the value is **1814**.
 
 ![Total Words Typed](/assets/img/2024-04-01/5_1.png){: width="500"}
 
@@ -87,7 +87,7 @@ It's so interesting that this is actually something that's logged on an iOS devi
 
 **Prompt**: What is the current build version?
 
-In `/private/var/root/Library/MobileContainerManager/mcm_migration_status.plist`{: .filepath} there's a key LastBuildInfo -> ProductBuildVersion with value **20F75**.
+In `/private/var/root/Library/MobileContainerManager/mcm_migration_status.plist`{: .filepath} there's a key `LastBuildInfo -> ProductBuildVersion`{: .filepath} with value **20F75**.
 
 ![LastBuildInfo](/assets/img/2024-04-01/6_1.png){: width="700"}
 
@@ -95,7 +95,7 @@ In `/private/var/root/Library/MobileContainerManager/mcm_migration_status.plist`
 
 **Prompt**: What is the guild ID of the discord server Chad was in?
 
-In the Discord user data folder (`/private/var/mobile/Containers/Data/Application/FE27BB5E-D91E-4417-8669-C68FD6C67A97`{: .filepath}) I find a cache database at `Library/Caches/com.hammerandchisel.discord/Cache.db`{: .filepath}. Here there are some entries for Discord API calls to a guild with ID **136986169563938816**.
+In the Discord user data folder (`/private/var/mobile/Containers/Data/Application/FE27BB5E-D91E-4417-8669-C68FD6C67A97`{: .filepath}) I find a cache database at `Library/Caches/com.hammerandchisel.discord/Cache.db`{: .filepath}. In the `cfurl_cache_response`{: .filepath} table, there are some entries for Discord API calls to a guild with ID **136986169563938816**.
 
 ![Discord Cache](/assets/img/2024-04-01/7_1.png)
 
@@ -134,7 +134,7 @@ I looked up '"GardenGamer95" twitter' and one of the first results is actually a
 
 **Prompt**: What question did Chadwick ask to AI?
 
-Autopsy lists ChatGPT among his installed programs (Data Artifacts -> Installed Programs). Nosing around the user data folder (`/private/var/mobile/Containers/Data/Application/6BFA5EA3-61CB-4652-A60A-2A955B651E05`{: .filepath}) leads me to a folder (`Library/Application Support/conversations-b5c12911-e3c0-4961-bbe7-aec0a3ec3dd6`{: .filepath}) with three JSON files in it. These files seem to be records of Chadwick's interactions with ChatGPT.
+Autopsy lists ChatGPT among his installed programs (`Data Artifacts -> Installed Programs`{: .filepath}). Nosing around the user data folder (`/private/var/mobile/Containers/Data/Application/6BFA5EA3-61CB-4652-A60A-2A955B651E05`{: .filepath}) leads me to a folder (`Library/Application Support/conversations-b5c12911-e3c0-4961-bbe7-aec0a3ec3dd6`{: .filepath}) with three JSON files in it. These files seem to be records of Chadwick's interactions with ChatGPT.
 
 He asks the AI many questions, including "What is doxing," "How to be a good gamer," "How to subtly dox without getting caught," and "**How to make online friends**".
 
@@ -152,7 +152,7 @@ On Chadwick's YouTube channel, there's a video titled "Final Kills Lead to CoD M
 
 **Prompt**: What outdoor activity store did Chadwick Visit?
 
-In `/private/var/mobile/Library/Caches/com.apple.findmy.fmipcore`{: .filepath} there's a few data files that look interesting, including one named `Devices.data`{: .filepath}. In here there's "lastConnected" location information for the iPhone's "owner."
+In `/private/var/mobile/Library/Caches/com.apple.findmy.fmipcore`{: .filepath} there are a few data files that look interesting, including one named `Devices.data`{: .filepath}. In here there's `lastConnected`{: .filepath} location information for the iPhone's owner.
 
 ![Cached Find My Data](/assets/img/2024-04-01/12_1.png){: width="500"}
 
@@ -164,7 +164,7 @@ Plugging this address in to Google Maps shows it's a store called **Neptune Moun
 
 **Prompt**: How many steps did Chad take on 12/3/2023?
 
-Magnet seems to like the Health database. I recall from the [previous iOS CTF](https://sao16b.github.io/4n6/posts/MVS_CTF_2023_iOS_Writeup/#15-a-river-runs-through-it---at-which-location-did-the-user-travel-the-most-meters-according-to-apple-city-country) that the `healthdb_secure.sqlite`{: .filepath} in `/private/var/mobile/Library/Health`{: .filepath} could be of use. I extract the database and form the following SQL query, after finding that the number of steps correlates to data_type 7.
+Magnet seems to like the Health database. I recall from the [previous iOS CTF](https://sao16b.github.io/4n6/posts/MVS_CTF_2023_iOS_Writeup/#15-a-river-runs-through-it) that the `healthdb_secure.sqlite`{: .filepath} database in `/private/var/mobile/Library/Health`{: .filepath} could be of use. I extract the database and form the following SQL query, after finding that the number of steps correlates to `data_type`{: .filepath} 7.
 
 ```sql
 SELECT
@@ -190,7 +190,7 @@ After executing the query, I find there are four records for 12/03. Adding up th
 
 **Prompt**: What Tattoo shop was visited on 12/27/2023?
 
-I export the notable location database I came across in the [previous iOS CTF](https://sao16b.github.io/4n6/posts/MVS_CTF_2023_iOS_Writeup/#15-a-river-runs-through-it---at-which-location-did-the-user-travel-the-most-meters-according-to-apple-city-country) at `/private/var/mobile/Library/Caches/com.apple.routined/Cache.sqlite`{: .filepath} and form a SQL query to extract some generalized latitudes/longitudes for 12/27/2023. 
+I export the notable location database I came across in the [previous iOS CTF](https://sao16b.github.io/4n6/posts/MVS_CTF_2023_iOS_Writeup/#15-a-river-runs-through-it) at `/private/var/mobile/Library/Caches/com.apple.routined/Cache.sqlite`{: .filepath} and form a SQL query to extract some generalized latitudes/longitudes for 12/27/2023. 
 
 ```sql
 SELECT DISTINCT
@@ -259,7 +259,7 @@ I take note of the GUID of the second message and open `sms.db`{: .filepath} in 
 
 **Prompt**: What is the 16 character carrier code?
 
-I go to the iLEAPP Report generated by the iLEAPP Analyzer, and just for kicks click on the Cellular Wireless tab. There's an entry for com.apple.carrier_1 with a 16 character code: **310240_GID1-6432**, which iLEAPP pulled from `/private/var/wireless/Library/Preferences/com.apple.commcenter.plist`{: .filepath}.
+I go to the iLEAPP Report generated by the iLEAPP Analyzer, and just for kicks click on the Cellular Wireless tab. There's an entry for `com.apple.carrier_1`{: .filepath} with a 16 character code: **310240_GID1-6432**, which iLEAPP pulled from `/private/var/wireless/Library/Preferences/com.apple.commcenter.plist`{: .filepath}.
 
 ![Carrier Code](/assets/img/2024-04-01/18_1.png){: width="500"}
 
@@ -286,9 +286,9 @@ Chad sent a message to Rocco on **2023-12-21 06:29:36** seeking to make amends, 
 
 ### 20. Its been a long time
 
-**Prompt**: When did chad last login to Facebook? YYYY-MM-DD HH:MM:SS UTC
+**Prompt**: When did Chad last login to Facebook? YYYY-MM-DD HH:MM:SS UTC
 
-In the Facebook user data folder (`/private/var/mobile/Containers/Data/Application/BF2FEA88-C397-405D-90EE-A56B2720896C`{: .filepath}), there are two databases that look interesting in the `Documents`{: .filepath} folder, `time_in_app_61554675133740.db`{: .filepath} and `time_in_app_61555027042760.db`{: .filepath}. In the latter, assumedly the most recent, there's a metadata table that contains a last_logging_timestamp, with a value of 1703712895. 
+In the Facebook user data folder (`/private/var/mobile/Containers/Data/Application/BF2FEA88-C397-405D-90EE-A56B2720896C`{: .filepath}), there are two databases that look interesting in the `Documents`{: .filepath} folder, `time_in_app_61554675133740.db`{: .filepath} and `time_in_app_61555027042760.db`{: .filepath}. In the latter, assumedly the most recent, there's a `metadata`{: .filepath} table containing key/value paris. The `last_logging_timestamp`{: .filepath} key has a value of 1703712895. 
 
 ![Time in App DB](/assets/img/2024-04-01/20_1.png){: width="500"}
 
@@ -306,7 +306,7 @@ I did a keyword search in Autopsy for "strategy" and came across a file in the F
 
 **Prompt**: What is the ChatGPT userID associated with chawickmr95@gmail.com
 
-In the ChatGPT user data preferences folder (`/private/var/mobile/Containers/Data/Application/6BFA5EA3-61CB-4652-A60A-2A955B651E05/Library/Preferences`{: .filepath}), I searched through the plists and found the userID in `com.openai.chat.StatsigService.plist`{: .filepath}: **user-xurgQ0xumvrujH5ESG17Yhcw**.
+In the ChatGPT user data preferences folder (`/private/var/mobile/Containers/Data/Application/6BFA5EA3-61CB-4652-A60A-2A955B651E05/Library/Preferences`{: .filepath}), I searched through the plists and found the `userID`{: .filepath} in `com.openai.chat.StatsigService.plist`{: .filepath}: **user-xurgQ0xumvrujH5ESG17Yhcw**.
 
 ![ChatGPT Preferences](/assets/img/2024-04-01/22_1.png){: width="600"}
 
@@ -365,7 +365,7 @@ I pipe the script output into a grep for Amazon (`python3 /path/to/script.py | g
 
 ![SEGB Parser into Greps](/assets/img/2024-04-01/25_2.png){: width="600"}
 
-From the output, it seems there were **2** instances of a text input stream (i.e. keyboard input) for the Amazon application.
+From the output, it seems there were **2** instances of a text input stream (i.e. keyboard input) for the Amazon application on 12/24.
 
 
 ### Debrief
